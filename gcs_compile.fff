@@ -1,0 +1,21 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{figures/Figure1-1.pdf}
+\caption{\label{fig:Figure1}Utility for goals \textbf{A} and \textbf{B} over
+time. The letters at the top of the chart indicate which goal she chose
+at each time.}
+\end{figure*}
+\efloatseparator
+ 
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{figures/Figure2-1.pdf}
+\caption{\label{fig:Figure2}The effect of experiences on utility across
+time.}
+\end{figure*}
+\efloatseparator
+ 

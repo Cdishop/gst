@@ -1,0 +1,529 @@
+---
+output:
+  pdf_document: default
+---
+
+Employees often face multiple, conflicting goals as they complete their work day. Core tasks, such as skill acquisition and networking opportunities, projects, and reports flood employee experiences, while superficial demands, such as emails, meetings, and phone calls threaten to emerge at any moment. In these environments, how do individuals decide which goal to pursue? What process guides their goal sampling behavior over time? Goal choice theories evoke utility functions [@keeney1976; @von1982; @steel2006] to explain this operation, such that employees choose goal 'A' over goal 'B' to the extent that 'A' produces greater utility. These explanations are among the most actionable organizational theories due to their concrete predictions [@van1996; @miner1980], but they have largely focused on single, static equations that neglect how the decision process updates and evolves with the dynamics of the environment [@luce1995; @busemeyer2002]. Goal choice theories across psychology, economics, and sociology largely agree on the necessary function parameters [@steel2006], therefore it is time to move beyond specifying a single equation and build a theory that describes the *process* of goal choice updating. 
+
+I present a theory of goal choice that subsumes prior work and embeds the individual utility function in a framework that makes both competing and complimentary predictions. The framework is grounded in experience sampling [@denrell2005] where the likelihood of choosing a goal is based not only on a utility function, but also on prior experiences situated in a dynamic environment. Specifically, individuals choose only among goals made available by the environment, and this choice depends on whether prior experiences with each were positive or negative. Although utility functions (referred to hereafter as $U$ functions) influence this process, the theory presented here shows how they are only one piece to a larger goal decision framework. Newell [-@newell1973] and Meehl [-@meehl1967; -@meehl1978] argued that, if theories are to be useful, they require integrating individual components and specifying a 'control structure,' which is a computer programming phrase used to describe the flow across an entire block of code rather than specific functions or variable assignments. In the current work, I attempt to do just that. 
+
+In this paper I unpack goal sampling theory (GST), a theory that extends prior work and uses a simple sampling model to unify different perspectives and ultimately explain goal choice updating. In doing so, I make four contributions. First, I explain goal sampling dynamics. Prior work includes time as a parameter in the various utility equations, but as I will show, simply including time in the parameter space does not make the equation dynamic. Dynamics, stated simply, refers to a system with memory where the past matters. This notion is essential for capturing how something updates across time, and incorporating it here provides an explanation beyond our previous knowledge and forces empirical work to consider updating over time. Second, the environment is a fundamental aspect in GST. Organizational theorists have been critical of the limited attention given to context in the organizational literature [@johns2017], stating that there is a "relative lack of research and conceptual consideration given to the question of how the internal organizational environment in which individual variables are studied affects behavior and interacts with the variables of interest" [@porter2014, p.16]. Moreover, "one might think that organizational context receives more explicit consideration with the growth of the OB field, but scholars have with regular intervals questioned the extent to which context plays any serious, prominent role in OB theory or empirical research" [@felin2015, p.603]. By incorporating the environment, therefore, GST appropriately places context at the forefront of the determinants of behavior. Third, GST can be viewed as a 'control structure' framework that builds toward a comprehensive view of goal sampling. As stated above, Newell and Meehl were adamant about moving towards theory that, rather than specifying single equations or variable to variable relationships, combined different elements of prominent empirical findings to characterize process and the flow of behavior. At Newell's time of writing, he noticed that individual authors were digging deeper into their own niches and, although a reductionist approach can certainly provide knowledge, at some point someone needs to abstract the various findings and describe how they fit together. The current paper will help future work think clearly about how various findings are related and, when abstracted and combined, provide rich explanatory power. Fourth, GST makes strong null predictions in both static and dynamic forms [@Pitariu2010]. @meehl1967, and other more recent authors [@gigerenzer1998; @gigerenzer2010; @Cortina2011], argue that theories in the social sciences rarely predict anything beyond "$x$ influences $y$" and the null hypotheses we establish in our empirical literature are straw arguments of "no effect." It then becomes superficially easy to make Type I errors or relate findings to a vague, overarching theory, resulting in a literature that is uninterpretable [@Meehl1990]. Strong theories make clear, testable predictions that build toward parameterization [@Cortina2017]. GST is a formal theory that acts as a benchmark to test against rather than an obscure verbal turf that can be supported by any positive test outcome [@platt1964; @Ilgen2000]. Finally, beyond these broad contributions I also discuss how GST addresses the assumptions and limitations of our prior thinking related to goal choices. These specific elements will be explained within each section below. 
+
+To develop GST, I draw from and extend Denrell and colleague's (2005; 2007) model of impression sampling and Steel and Konig's (2006) theory of goal choice to explain how and why goal choices update over time -- a process that I refer to as "goal sampling." I choose to explain individual components sequentially, rather than presenting the entire theoretical framework upfront, to simplify the equations and clearly specify why each aspect is important. I start with existing explanations of goal choice and describe their common components. I then unpack the importance of the environment and describe how it informs decisions about which goal to pursue. Subsequently, I describe how to incorporate dynamics into the aforementioned pieces that appropriately situates the theory over time and clearly specifies a process that can update. Armed with an understanding of each individual component, I end with the entire theoretical sampling framework and conclude with its implications. 
+
+# Choosing a Goal
+
+Goals refer to internal representations of desired states [@austin1996], and the decision literature is concerned with how individuals choose which goal to pursue. This notion is distinct from goal-striving, which describes effort and performance strategies usually in the pursuit of a single goal [for exceptions, see @schmidt2007 or @vancouver2010]. Theories of goal choice and decision making are present in economics, psychology, and sociology, and are nicely integrated by @steel2006. Their temporal motivation theory (TMT) incorporates hyperbolic discounting, expectancy theory, cumulative prospect theory, and need theory into an integrated $U$ function that predicts goal choice. The details of those theories are not crucial here, as each delivers a variant of a utility equation, such that:
+
+\begin{equation}
+U = f(X_{theory})
+\end{equation}
+\noindent where $U$ represents utility, or a preference for a certain goal, and $X$ is a set of variables whose formal representation depends on the theory. The set of variables across each theory, $X$, are not the focus of this paper so they will only be briefly described here. Core variables in the set typically include expectancy, valence, and deadline/outcome time. Expectancy refers to a subjective belief about the likelihood of achieving a goal. Valence is how much an individual values the outcome that follows goal attainment, and time in TMT refers to when the outcome is received (how distant the reward is). As stated in @steel2006, the consistency of $U$ functions across fields for predicting goal choices is greater than one would assume, and I therefore use $U$ as a starting point to expand on. That is, theories of goal choice largely agree that some form of subjective utility influences decisions, so it is a crucial component to include. A common critique of these functions, and motivation theories in general, however, is their neglect of the environment [@simon1956; @kanfer2016; @kerr1975; @johns2017]. In the next section, I describe why it is necessary to incorporate the environment and express my first extension of $U$ for describing goal choice. 
+
+# The Environment
+
+Any description of behavior must account for the environment in which it occurs [@simon1992] because the environment constrains what actions are possible [@simon1956; @greeno1994; @cappelli1991]. Although prominent authors have repeatedly critiqued the limited attention to context in organizational research [@kanfer2016; @johns2006], there are many examples that highlight its relevance in other disciplines.
+
+Studies of animal behavior have repeatedly shown that the environment influences basic physiology. Signs of healthy brain development, such as improved plasticity and neurotrophic functioning, are greater in mice raised in enriched environments (e.g., cages with toys and other mice) compared to those raised in isolation [@duman2009]. Beyond basic physiological functioning, context also plays a role in decision-making. @douglas2012 trained pigs to approach a hatch following a certain sound but avoid the hatch after a different, second sound. The authors were then interested in what would happen when they introduced a novel tone. Pigs raised in barren environments showed no differences in their approach/avoidance behavior, whereas pigs that were raised in comfortable, social, and playful environments were more likely to demonstrate approach behavior following the novel tone. This effect has also been replicated across a variety of other animals [@brydges2011; @salmeto2011; @matheson2008]. 
+
+A key insight that will be discussed throughout this paper is that the environment acts like a leash, making certain behaviors more or less likely (but not guaranteed). For example, Worthy, Maddox, and Markman [-@worthy2007] asked college students to sequentially choose a single card from one of two decks. The authors manipulated whether the focus of the task was to gain points or avoid loosing points based on the values of the drawn cards. Moreover, they also manipulated the framing of the payout structure by telling participants that they would either be entered into a lottery if they achieved a certain amount of points (promotion) or removed from the lottery if they failed to sustain those points (prevention). One of the decks returned greater values initially but was ultimately worse to choose from, whereas the other was more valuable to choose from in the long run but provided bad cards initially. The authors were thus interested in the card deck sampling behavior of the participants. Participants explored more (sampled more from the 'initially bad' deck) under regulatory match manipulations, or when gain was paired with promotion and loss was paired with prevention. Exploitive behavior (sampling from the 'initially good' deck), conversely, emerged among participants under regulatory mismatch conditions, or when gain was paired with prevention and loss was paired with promotion. 
+
+These results demonstrate that the environment enhances or diminishes the probability of certain behavior patterns. The probability of choosing from the deck 'initially bad' is constrained by both the reward it provides and the nature of the situation. Exploratory/exploitive behaviors thus become more or less likely depending on context. Note that I am referring to the promotion/prevention and gain/loss framing as the 'environment' because, despite there being literature on a regulatory focus individual difference [@crowe1997], they were used as part of the task and therefore align more with the literature on job characteristics than individuals differences [@hackman1976]. 
+
+The aforementioned animal behavior studies could be construed as evidence that 'positive' environments produce 'positive' outcomes, but @worthy2007 also show that what we need to consider with respect to the environment is what it constrains/facilitates, not whether it is positive or negative. There are numerous examples where seemingly positive environments actually produce worse outcomes. Job autonomy, for instance, sometimes leads to lower creativity, and job richness can lead to stress in some cases [@johns2010]. What matters is that the environment increases or reduces the probability of certain behavior patterns regardless of whether or not they are positive. For example, overconfidence, while negative in some domains, is adaptable in environments that are novel, unpredictable, or poorly understood [@johnson2011]. 
+
+Contrary to the environment's limited appearance in organizational field work, we find it highlighted in many psychological theories. Events systems theory predicts that many organizational changes arise from critical events that are novel or disruptive [@morgeson2015], which then explain relationships between seemingly unconnected levels of an organization. Tett and Burnett's [-@tett2003] trait activation theory specifies features of the environment that constrain or facilitate job performance. For example, a "job demand to interact with others might elevate the performance of an extrovert, whereas the presence of random others or physical isolation might respectively distract or constrain this person in terms of performance" (Johns 2018 p. 25). Gigerenzer and the ABC group study ecological rationality, or fast decision-making with respect to constraints imposed by the environment [@gigerenzer1999]. Finally, Grandey's model of emotional labor acknowledges that job environments, including interactions with customers and the behavioral expectations of the organization, change the probability of emotional responses in employees [@grandey2000; @grandey2015]. A common feature of theories that include the environment, therefore, is acknowledging the constraints it places on behavior.
+
+I argue that the environment is important for goal choices as well. Consider a few examples: An employee has a high utility for goal 'A' but is forced to work on goal 'B' by their manager; A co-worker is sick and asks another individual to cover their tasks for the day; Low performance at a neighboring branch requires an individual to put off their current work and help train their fellow employees; A Wi-Fi outage constrains an individual's set of goal options; An email with a provocative subject line draws an individual's attention away from their current goal. These examples are simple but are by no means uncommon, yet they are difficult to represent with only utility. Moreover, they reveal that some environmental constraints are consistent but others are random or difficult to predict. Instantiating this notion into a representation of goal choice, therefore, can be done with likelihoods, where an individual has a probability of choosing a goal at a given moment with respect to the environmental constraints. Stated formally:
+
+\begin{equation}
+\Theta_{A} = E * U_{A}
+\end{equation}
+\noindent where $\Theta_{A}$ represents the likelihood of choosing goal 'A,' which is a function of both the environment, $E$, and the utility of 'A', $U_{A}$. If the environment places restraints on goal 'A' such that it cannot be sampled, then $E$ would be zero and the likelihood of choosing 'A' would also become zero. Although this is a simple representation of the environment, Meehl (1967) suggested creating simple formulas such as the one presented despite an incomplete understanding of the 'true' function [see also @morgan2015]. We may never be able to adequately capture the environment, but it is important to represent nonetheless. 
+
+**Strengths of Incorporating the Environment** By specifying equation two I reveal several strengths of GST that are missing in prior work. First, prior utility models cannot account for situations like those presented above where context forces an individual to change goals. These models either assume that the environment does not matter or is somehow incorporated into the variables that make up utility (valence, expectancy, deadline time). This second assumption does work occasionally -- if, for example, a government shutdown creates new deadline times -- but it is not amenable to the spectrum of situations described above. 
+
+Second, creating a likelihood function by combining the environment with utility demonstrates GST's focus on probabilistic goal sampling rather than a deterministic choice. Researchers use probabilistic terms to describe valence and expectancy [@vaneerde1996], but prior formulae for choosing goals imply that two choices at different points in time should be identical if the values in the set of $X$ at each are the same. GST, conversely, acknowledges that goal choices -- despite equal utility values -- may differ across time. The environment term, therefore, acts like a mathematical error term and captures the notion of different goal choices despite identical utility at two time points. Probabilitic models are also increasingly popular because even deterministic systems can create unpredictable behavior [@mitchell2009], GST therefore presents a model consistent with the broader scientific literature. 
+
+**Proposition 1**
+*Goal sampling at two time points may be different -- even when utility is exactly the same -- because the environment forces sampling.*
+
+Finally, emphasizing probability sampling hints that the process must be studied over time. Although researchers three decades ago were excited about the increasing prevalence of process explanations in our theories and longitudinal designs in our investigations [@monge1990], authors today still express disappointment by the static descriptions lingering in our theories and empirical articles -- even among longitudinal designs [@Cortina2017; @Cortina2016; @Ployhart2010; @Pitariu2010; @DeShon2012; @vancouver2018]. GST reorients our thinking from a single event to multiple episodes simply because likelihoods bring to mind a phrase that implies repetition: "sampling from a distribution." That said, we are still left with a static theory because equation two has no way of updating over time. In the next section, therefore, I unpack my next extension: dynamic updating. 
+
+# Dynamic Updating
+
+Utility functions have been labeled as time insensitive, static, and unable to capture dynamic effects [@luce1999; @baumeister2016]. @steel2006 respond to calls for a dynamic representation in TMT by formally including time as a variable in their $U$ function, such that positive outcomes far removed produce lower utility. Incorporating deadlines is appropriate, but simply including time as a variable does not make the equation dynamic. That is, when the $U$ function incorporates deadline time it is still expressed as:
+
+\begin{equation}
+U = f(X_{theory})
+\end{equation}
+\noindent but a variable, $T$, which is the amount of time until a goal's deadline, is incorporated into the set of $X$. Doing so captures subjective time, but it does not represent the process over time. To do so, we can change the equation to acknowledge two assumptions: 1) that $U$ can change over time
+
+\begin{equation}
+U_{t}
+\end{equation}
+\noindent and 2) that $U$ is a function of current variables in the set of $X$:
+
+\begin{equation}
+f(X_{theory})_{t}
+\end{equation}
+\noindent which gives us the following when we combine those ideas:
+
+\begin{equation}
+U_{t} = f(X_{theory})_{t}.
+\end{equation}
+\noindent That is, utility at time four depends on the set of variables in $X$ at time four, but utility at time five can be different from utility at time four.
+
+We now have a description of utility over time, but this representation is still not consistent with what most would consider dynamic modeling [@busemeyer2018; @kondrashov2016]. Utility, as presented above, is memoryless, where any effects at time $t$ disappear and are replaced by new effects at time $t+1$. Dynamic representations account for the past, and there are many empirical examples where prior states carry over into the future. For example, personality shows stability over time, with test-retest correlations as high as 0.8 [@denissen2011]. Children retain their delay of gratification abilities across their lifetime [@tobin2010]. Goal discrepancy states show consistency over time [@deshon2009] reflecting satiated behavior [@simon1956]. Team cohesion and performance have stability coefficients of 0.50 [@mathieu2015]. Finally, @shan2005 argued that suspected predictors of economic growth contribute little to the understanding of an economic trajectory over its own prior behavior. Indeed, it is difficult to find examples where prior states are not important to the development of a variable over time. We represent states with memory mathematically by using autoregressive terms. The following:
+
+\begin{equation}
+U_{(t+1)} = b_0 U_{t}
+\end{equation}
+\noindent expresses utility dynamically, where $U_{(t+1)}$ is utility at the next time point and $b_0$ represents the coefficient relating current to future utility, which formally models self-similarity [@DeShon2012; @vancouver2012].
+
+**Strengths of Incorporating Dynamics** Adding this dynamic element reveals additional strengths of GST. First, utility now has similarity across time. Prior explanations and models that do not present utility in this way assume that goal choices are independent at each moment and any effects at time $t$ disappear and are replaced by new ones at time $t+1$. Although you can describe processes over time in this way, these explanations amount to no more than compiled snapshots of behavior that miss the continual flow governing the system [@Ilgen2000]. As stated above, it is difficult to find an occasion where the prior behavior of a variable is not important to its own development, and incorporating autoregression presents a more realistic model of utility. 
+
+Models that do not account for the past also imply that utility is unconstrained across time. That is, utility at time $t$ can jump to high or low values at time $t+1$ irrespective of its position at $t$. Although I have not seen a discussion about whether such behavior is possible for utility, it would be inconsistent with how researchers in empirical articles describe the variables in the set of $X$ [@dreher1991; @erez2002]. 
+
+**Proposition 2**
+*Utility has self similarity across time, such that a goal's utility at time $t$ is positively related to its value at $t + 1$.*
+
+Of course, understanding a process also requires that we account for *other* prior states (variables). Prior fluctuations in burnout predict turnover cognitions [@taylor2014], perceived changes in HR systems influence future customer satisfaction [@piening2013], and training developments influence later performance [@kraiger1993]. What prior variable states are important to consider for goal choices? Some indirect evidence suggests that experiences with goals and their outcomes inform future decisions. Gambling payoffs influence future bets [@thaler1990]. Customers make different choices about consumer items if their immediately prior experiences are positive rather than negative [@novemsky2005]. Task choices are informed by levels of prior task achievement [@lewin1944; @bandura2001]. Ackerman's theory of intellectual development connects prior task success or failure to interests, which then drive future task sampling [@ackerman1996; @reeve2015]. Finally, social impressions influence future interactions, such that pleasurable experiences increase the likelihood of the social group meeting again [@thibaut1959].
+
+To cover these situations we need a way to incorporate experiences (defined below). In the next section I discuss a sampling model that helps us do so.
+
+# Experience Sampling
+
+GST claims that goal experiences, or subjective evaluations of the feedback and rewards received from sampling a goal, combine with utility and the environment to drive future goal sampling. The mechanism by which this happens is drawn from Denrell's (2005; 2007) sampling model of impression formation, where people are more likely to sample (i.e., engage with) others for whom they have positive impressions, but stop sampling anyone for whom they have negative impressions. GST extends this notion to goals and experiences with their outcomes. If an individual receives a subjectively favorable experience from a goal then its utility increases and the individual becomes more likely to sample it again in the future. When goals produce unfavorable outcomes, conversely, individuals stop sampling (with a certain probability). Relating goal sampling to prior experiences not only facilitates a dynamic understanding of the process, but it also captures the classic effects of feedback and reward [@ludvig2011; @dickinson1989; @kerr1975; @rescorla1972; @pinsker1970]. 
+
+A formal representation of utility updating based on its own prior state and the sampling experience is as follows:
+
+\begin{equation}
+U_{(t+1)} = b_0 U_{t} + b_1 Ep_t
+\end{equation}
+\noindent where $Ep_t$ represents the experience of a goal at time $t$, $b1$ is the weight relating experience to utility, and all other terms are defined above.
+
+Utility then influences the probability of sampling alongside the constraints of the environment at the next time point ($E_{t+1}$):
+
+\begin{equation}
+\Theta_{(t+1)} = E_{t+1} * {\frac {1}{1 + e^{U_{(t+1)}}}}
+\end{equation}
+\noindent where $\Theta_{(t+1)}$ represents the likelihood of sampling at $t+1$ and all other terms are defined above. I will thoroughly discuss the components of these equations in later sections. What is important here is to recognize that we mathematically represented the following:
+utility and the goal sampling experience influence utility at the next time point (equation 8), and at this time utility combines with the environment to inform the likelihood of goal sampling (equation 9). 
+
+**Strengths of Incorporating Experience Sampling** Incorporating experience sampling provides two strengths beyond prior work. First, I account for the known influence of feedback and reward. Second, GST captures goal sampling irrespective of goal completion. There are many examples where individuals can still sample goals even after completing them, but past utility theories overlook these situations by focusing only on behavior leading up to goal completion. These implications, however, can be difficult to see from the equations; I therefore discuss them with examples below.
+
+GST predicts that goal experiences influence future goal sampling. Again, an experience in GST is an individual's subjective evaluation of the feedback or reward a specific goal sample produces. For example, imagine a professor setting the goal to read 50 pages of a book. After one sample of this goal she receives feedback in (potentially) many forms, such as pay, social acknowledgment from others, or feelings regarding reading itself (e.g., pleasure or exhaustion). GST summarizes her subjective evaluation of this feedback with a single value: the experience. If taking action toward the 'read 50 pages' goal results in a positive experience then the professor is more likely to sample it again in the future. But if doing so produces a negative experience, then she has a much lower sampling probability. In GST, therefore, the decision to sample is directly tied to utility and the accumulated prior experiences on which it is based.
+
+**Proposition 3**
+*Goal choices at time $t$ are positively related to subjective evaluations of a goal experience at the immediately prior time point $t - 1$, such that individuals are more likely to sample goals that provide a subjectively favorable experience at $t - 1$ but less likely to sample goals that provide a subjectively unfavorable experience at $t - 1$.*
+
+Second, GST focuses on global sampling behavior, and the mechanism just described applies irrespective of whether or not individuals complete the goal. Rather, goal completion in GST is viewed as another experience of sampling. To continue the example, imagine two situations: one where the professor does *not* complete her goal of reading 50 pages, and a second where she does complete it. Both of these situations are samples of the '50 pages' goal where future sampling depends on her perceptions of the experience feedback at each sample. 
+
+Consider first the situation where she does *not* complete the goal. If she views this sample as negative because she underperforms, then sampling the '50 pages' goal is unlikely moving forward. But if other positive aspects of reading overwhelm the negative underperformance, such as the riveting nature of the material or the tranquility surrounding quiet reading time, then the probability of future sampling is higher.
+
+Turn now to the situation where she does complete the '50 pages' goal. If she views this experience as negative (due to say, exhaustion), then future sampling is lower than if she finds the experience positive (due to completing the goal). GST, therefore, focuses on utility updating and sampling behavior across time due to various experiences regardless of where the individual lies on their 'goal completion' continuum. If an individual terminates a goal by completing it, then it can no longer be sampled in the future. But there are many cases, the 'read 50 pages' being one, where goal completion does not remove the goal; GST captures both of these situations. 
+
+**Proposition 4**
+*The mechanism of goal sampling as presented in GST is the same irrespective of whether or not the individual has completed the goal.*
+
+# Goal Sampling Theory
+
+I have introduced important components for theories of goal choice. Utility perceptions inform goal preferences in the moment, the environment constrains which goals are available, and prior experiences update goal sampling likelihoods. I discussed each individually to avoid overwhelming the reader with equations, but I now move to the full goal sampling theory and place these aspects into a 'control structure' framework to demonstrate how this process develops over time [@newell1973; @meehl1967].
+
+In GST, goal choices are viewed as opportunities to sample goals. Sampling results in an experience, which can be thought of as an individual's subjective evaluation concerning the feedback or reward it produces for that specific sample. This experience updates utility, which then informs the likelihood of sampling that goal again in the future -- alongside the constraints of the environment. Repeated sampling is likely when prior experiences are positive and unlikely when prior experiences are negative [@denrell2005], such that individuals have a low probability of sampling goals that produced poor outcomes in the past. 
+
+The core elements of the theory, therefore, include experiences, utility, and goal sampling likelihoods. A goal is chosen to the extent that it has a high likelihood and is made available by the environment, its outcomes then produce an experience for the individual, that experience informs utility, and utility, finally, combines with the environment to create the likelihood of sampling that goal again moving forward. This mechanism integrates organizational [@kanfer2016], environmental [@simon1956], sampling [@denrell2005], and decision theory [@steel2006] concepts that provide a fruitful description of goal choices. Theories suffer, however, to the extent that they cannot be expressed mathematically [@Pearl2009], so I now present a precise model that incorporates each component. 
+
+For simplicity, consider one individual and her sampling behavior of a single goal, 'A.' Sampling 'A' produces experiences that, in this case, are assumed to follow a normal distribution. Instantiating GST into a formal model of goal 'A' would be:
+
+\begin{equation}
+Ep_{At} \sim {N}(0,1)
+\end{equation}
+
+\begin{equation}
+U_{A(t+1)} = 
+  \begin{cases}
+  b_0 U_{At} + b_1 Ep_{At}, & \text{if goal 'A' is chosen}\\
+  b_0 U_{At}, & \text{otherwise}
+  \end{cases}
+\end{equation}
+
+\begin{equation}
+\Theta_{A(t+1)} = E_{t+1} * {\frac {1}{1 + e^{U_{A(t+1)}}}}
+\end{equation}
+
+Beginning with equation 10, $Ep_{At}$ represents her experience of goal 'A' at time $t$ and is assumed to follow a normal distribution with a mean of zero and standard deviation of one. This representation acknowledges that her experience of goal 'A' can be positive, negative, or neutral. Moving to equation 11, her utility of goal 'A' at time $t+1$ ($U_{A(t+1)}$) is influenced by the experience of goal 'A' (to the degree of $b_1$) but only when she samples 'A.' If she does not, then the experience cannot happen and thus does not influence utility. In both cases, her prior utility influences current utility to the degree of $b_0$. Equation 12 represents her likelihood of sampling goal 'A' at the next time point. The likelihood of sampling goal 'A' ($\Theta_{A}$) at $t+1$ is a function of the environment ($E_{t+1}$) and a power function of utility. If utility for goal 'A' is high, then sampling 'A' is likely to the extent that the environment is amenable to that choice. In GST, this process is assumed to operate across all possible goals in the environment, which means that our example individual would have a utility for each possible goal, and at each moment she would act toward the goal with the highest likelihood. 
+
+Simple mathematical representations are preferred over their complex counterparts [@stewart2012; @miller2009], and the power function, at first, seems unnecessary. I use it here because it has empirical support [@guadagni1983; @yechiam2005], is present in Denrell's original social impression sampling model [-@denrell2005], and can handle negative values that emerge from equation 10.
+
+One of the benefits of formal theories is that we can implement them as computational models to ensure their behavior is appropriate. I programmed equations 10 - 12 into a simple computational model where our example employee chooses between two goals, 'A' and 'B', over 20 time points. Figure one shows her utility for both goals across time. The top of the graph shows which goal she chooses at each time by presenting the letter 'B' or 'A' in boldface. For example, her sequence was 'B,' 'A,' 'B' for the first three time points, respectively. We can see that utility demonstrates self similarity across time due to the autoregressive parameter, $b_0$ (set to 0.3 for both goals) and the data are stationary. Moreover, she chooses the goal that has the greatest utility at each respective time, therefore the framework -- and its instantiation in a computational model -- produces appropriate behavior. 
+
+Although utility demonstrates self similarity over time, why do we do see fluctuations in figure one? These changes are due to her experiences, which are shown with respect to her utility in figure two. The top panel reveals her experiences and utility across time for goal 'A,' whereas the bottom panel is the same but for goal 'B.' Experiences are bar plots because they are independent; her experience outcome at time seven does not depend on her experience at time two. This figure demonstrates the lag effect of experiences on utility. For example, her experience of goal 'B' at time one is negative (bottom panel), and this drives her utility of goal 'B' down at the next time point. Similarly, she has a positive experience of goal 'A' at time eight (top panel) and this increases her utility of goal 'A' at the next time point. Also notice that she does not receive an experience value (i.e., she does not experience) goal 'A' at time points when she chooses goal 'B' (and vice versa).  
+
+In summary, GST unites the pieces I have discussed throughout this paper and produces reasonable behavior when instantiated as a computational model. Having introduced the theory as a whole, I can now turn to its last few implications, implications that concern utility estimates, their stability, and their reliance on experiences. Specifically, if we think about experiences as being drawn from a distribution (equation 10) then we need to consider how different draws inform utility. I will explain these implications below with examples because, although we gain advantages by specifying the functional form of relationships [@vancouver2018; @mcphee1981], digesting the equations can be difficult without connecting them to the real world. After presenting these last implications and propositions I state the theory's assumptions and then close the paper. 
+
+## Additional Implications
+
+In GST individuals are assumed to have their own, true utility for each goal. Their beliefs about the utility of a goal at any moment is an estimate of this true utility value, and because utility estimates are updated by experiences in GST, individuals may arrive at biased estimates of utility if goal samples produce unrepresentative experiences. There are a host of (potentially unknowable) factors that determine whether goals produce positive or negative experiences, and GST raises the idea that these may create sampling tendencies that, in turn, produce biased estimates of utility. For example, imagine a call center employee with the goal of raising \$1200 over the course of a day [@shantz2009]. This goal has a utility for our employee that is informed by the set of $X$ (e.g., expectancy) and also her sampling experiences. For simplicity, assume that her true utility of the goal 'raise \$1200' is 0.7 and that individual experiences of sampling it are $\sim {N}(0,1)$. Now assume that her first experience is poor (e.g., -0.2). According to GST, she is unlikely to sample it again (unless forced to by the environment) and, in this case, her estimate of -0.2 represents a false negative. This is not a bias stemming from poor judgement or mis intent, rather it is one of limited information. She only has one sample from which to base her estimate, so the probability of that estimate being representative of actual utility is low, and it is unlikely to be corrected because experiences are directly tied to sampling through their influence on utility. GST therefore predicts that more (rather than less) sampling leads to more accurate utility estimates. 
+
+**Proposition 5**
+*Greater goal sampling, compared to limited sampling, produces more accurate estimates of utility.*
+
+If we reverse proposition five and consider how utility estimates influence sampling behavior we arrive at the next prediction of GST: negative estimates of utility (or low utility) will be more stable than positive estimates (given no environmental coercion). If experiences are negative than an individual's utility estimate is unlikely to change over time because they stop sampling, whereas positive estimates lead to more sampling and potential utility changes. At any moment, a goal that used to result in favorable experiences could instead produce an unpleasant experience, lower utility, and subsequently reduce the probability of sampling that goal again. Negative utility estimates are therefore characterized by limited sampling and stability, whereas positive utility estimates are characterized by greater sampling and instability (but no greater than allowed by $b_0$). 
+
+**Proposition 6**
+*Negative utility estimates are more stable than positive utility estimates because the latter lead to more goal sampling and are therefore suspect to change.*
+
+Another implication of GST is that we are more likely to find a greater amount of false negative utility estimates than false positives among people who are free to sample goals. Again, positive experiences produce more sampling, which allows an individual to come to a more accurate representation of the experience distribution for a given goal and the utility it can provide. When sampling does not occur, due to negative experiences, improper utility estimates cannot be corrected over time. False negatives are therefore likely to persist while false positives are not. 
+
+Consider students in a graduate program who each have a goal of analyzing two data sets, and assume all are, at first, freely allowed to sample this goal as they please. After a period of time we would find a distribution of utility estimates among our students and each would have sampled the goal a different number of times. If we then forced every student to sample the 'two data set' goal repeatedly, GST predicts that we would find more cases of people raising their utility estimates than lowering it. This is not to say that there would be more instances of positive utility. Rather, GST predicts a larger proportion of false negatives in the pool of estimates in situations where sampling is tied to utility and no environmental coercion exists (initially). 
+
+To unpack this notion even further, imagine that ten students have true utility estimates of 0 for the 'two data set' goal and all of their experience distributions are also centered about 0. Again, we let the students sample at will for a period of time. Students who initially receive positive experiences sample the goal with greater frequency and subsequently reduce their positive estimate toward 0 as they gather more samples, whereas students with initially poor experiences stop sampling and their estimates remain negative. When we return to force the students to sample this goal, only the negative estimates can change because the students with initially (false) positive estimates have built a large number of samples centered about the true value. 
+
+**Proposition 7**
+*There are greater amounts of false negative utility estimates than false positives where individuals are free to sample goals.*
+
+The examples I used to describe propositions five through seven were technical. Here is a summary example that is less abstract. Imagine an employee who wants to be more friendly and therefore sets a goal to spend 20 minutes casually speaking with people in a neighboring department every other day. Sometimes his conversation goes well. He felt immersed in it, learned about other employees, found them polite and interesting, and ultimately believes that this sample of the goal "20 minutes of casual speaking" helped him become a bit more friendly. These feelings and outcomes, in sum, represent his experience of this specific sample. At other times, however, he feels that a sample of this goal did not help him become more friendly. Instead, he annoyed the others and came off as a brown nose. As he continues to sample the goal he builds an experience distribution, and from this distribution he estimates the goal's utility. His utility estimate will be more accurate when he converses with other employees many times and builds a large experience distribution, compared to a situation where he only tries the goal once or twice (proposition 5). Moreover, after several bad conversation experiences he will have a low utility estimate and be unlikely to continue to make conversation with others. Because he stops the "casual speaking" goal, his utility estimate of it will not change (proposition 6). Finally, if we expand this example to 100 employees who are free to sample the "conversation" goal we reach proposition 7. GST predicts that, over time, there will be a greater number of employees who falsely believe that the conversation goal is of no utility compared to the number of employees who falsely believe that the conversation goal is of great utility. 
+
+# Assumptions and Caveats
+
+Presenting GST's equations also makes a variety of assumptions clear. First, this process is assumed to operate under conditions when sampling is directly related to utility. In GST, the probability of goal sampling cannot change without immediately prior utility perceptions changing unless the environment forces sampling. There may be some situations, however, where goal sampling is more or less sensitive to utility. In these contexts, where various levels of sensitivity are important, utility can be multiplied by an additional parameter in the likelihood equation. Doing so is an unnecessary complication here, but future work could certainly incorporate this additional parameter when needed. 
+
+Second, goal likelihoods are assumed to follow an exponential choice rule [@luce1959]. As stated, this equation was selected to remain consistent with prior work, but a fruitful area for future research is to determine environments where simpler functions are appropriate.  
+
+A number of assumptions are also embedded in how GST represents experiences. GST assumes constant weighting of experiences on utility across time ($b_1$) and this removes contrast effects. Of course, we could also assume that $b_1$ varies over time and thereby allow for fluctuating weights. Moreover, GST assumes that positive and negative experiences have the same effect on utility, and the implications of breaking this assumption depend on whether we give positive or negative experiences more weight. If positive experiences have a greater influence than negative experiences, then utility bias would be lower than cases where negative experiences have more weight because the former situation favors greater sampling driven by positive experiences and thus more representative estimates. 
+
+In its current form, GST does not capture primacy effects. In some situations, the first experience may be so profound that it determines all subsequent sampling and a formal representation of updating likelihoods is not needed. These first impressions may then subsequently produce self fulfilling prophecies and confirmation bias. These effects should not be seen as irrelevant in GST, but are simply complimentary mechanisms that emphasize different features. 
+
+Finally, GST assumes that experience distributions are independent from goal utility estimates. Return to the 'read 50 pages' goal example. GST claims that experiences from sampling the goal 'read 50 pages' inform utility, and utility influences future sampling. GST does not, however, directly tie utility to the outcome of the sampling experience. That is, the professor's belief about her ability to perform the goal 'read 50 pages' (or other aspects of utility) do not determine whether the sampling experience is positive, negative, or neutral. There are many components, some due to the professor and some not, that cause an experience to be positive or negative, and although GST views these experiences as important for utility updating across time, it does not necessarily make the reverse connection. It will be important for future research to understand when utility informs the distribution of possible experiences and when it does not. 
+
+# Discussion
+
+In this article I discussed important components embedded in goal sampling. In doing so, I extended common utility equations seen throughout the literature into a theoretical framework by incorporating the environment, sampling and the experiences they produce, and dynamic updating. This produced GST, a formal theory that integrates several bodies of work, including organizational theory and empirical work on the environment, biased sampling models of impression formation, notions of dynamics and processes over time, and the foundational utility aspects that formed the opening of this paper. GST provides an explanation for how goal choices update, and understanding each aspect of the process leads to new and interesting predictions.
+
+GST begins with a value concerning the experience of sampling a goal, a value that summarizes how an individual evaluates goal feedback at that moment. In GST, experiences can be registered irrespective of goal completion, and this captures cases where 1) goal sampling continues even after goal completion and 2) individuals leave and return to goals multiple times before completing them. Embedding experiences into GST also helps align the theory with prominent findings early in psychological research regarding rewards and their effects on choices [@ludvig2011]. After a single sample takes place, the experience informs utility, but it does not do so alone in a static way where prior utility perceptions have no influence on the system. Rather, the prior behavior of utility constrains any future update, which is a simple idea but acknowledges the crucial difference between static and dynamic modeling [@kondrashov2016]. Moreover, relating prior to current utility emphasizes that utility perceptions continue (but potentially without perfect carryover) even when goals remain "unsampled" for a period of time. The likelihood of choosing a goal again in the future is then determined by this updated utility value and the environmental constraints that force or deter sampling.
+
+Several contributions emerged from my discussion of GST, the first and most prominent being the strong predictions that allow for empirical testing [@meehl1967]. As stated, GST suggests differences in sampling behavior among individuals with positive versus negative (low) utility estimates, predicts greater amounts of false negatives in a subject pool with no sampling coercion, raises the notion of goal utility bias, and presents a formal framework that lends itself to parameterization and computational modeling. In doing so, GST is a benchmark for future empirical tests. Second, GST provides a dynamic explanation of goal choice updating by clearly specifying lag relationships. Dynamics is a topic of increasing interest in organizational literatures [@DeShon2012], but incorporating and testing dynamic hypotheses and models is a significant challenge for empirical work [@Pitariu2010] due to the vague and verbose nature of some of our theories [@Cortina2016; @Cucina2016; @Ilgen2000]. GST presents a formal model of updating over time to ease the transition from theory to models. Finally, GST responds to calls for more attention concerning how the environment shapes key behaviors [@kanfer2016; @johns2017]. Choosing to sample a goal is a decision employees make several times a day, but it is not siloed from the constraints of context.
+
+## Implications for Practice
+
+GST offers several implications for management practice. The first is to recognize that both employee characteristics (utility; experiences) and the environment drive goal sampling. If a manager is doing all they can to manipulate variables in the set of $X$ to produce positive outcomes for both the employee and the organization but they are still dissatisfied with the result, it may simply be due to an unaccounted-for variable in the environment. GST therefore suggests that managers need to appreciate what constraints operate on their employees and if they have any way to adjust them favorably. Second, GST forces managers to consider the continuity of utility and the sampling behavior among their employees. How an employee feels about their goal yesterday, according to GST, is related to how they feel about it today. Any attempts by management, therefore, to change goal behaviors need to account for the history of utility. One-time changes or shocks are unlikely to work -- only repeated exposure to new practices allows utility to move outside the windows of its past behavior. Finally, GST suggests that managers would have a greater understanding of their employee's goal sampling behavior -- and therefore be in a better position to motivate them -- if they considered how employees cumulate experiences rather than how much they value the outcome they receive after completing a goal. Irrespective of whether or not employees complete the goal, GST implies that managers will be in a much better position to understand which goal an employee is likely to pursue if they attend to the pattern of good and bad experiences. The question, "What did my employees experience the last few times they pursued this goal?" may be much more fruitful than, "What should I give my employees when they finish?"
+
+# Conclusion
+
+Goal choices are at the forefront of an employee's work day and therefore represent an important behavior to understand. In this paper, I discussed what we know about these choices, some of the limitations in our prior thinking, and how our models and explanations can be updated to account for a variety of aspects. This led to GST, a theory that combines perspectives from different fields to explain goal sampling. GST states that individuals probabilistically sample goals made available by the environment -- and a single sample results in an experience. Experiences, along with prior utility, then update utility at the next time point and the process begins again. This simple sampling mechanism provides an explanation for how goal choices update over time and makes several strong predictions that lend themselves to empirical testing and computational modeling. 
+
+
+```{r Figure1, fig.cap= "Utility for goals **A** and **B** over time. The letters at the top of the chart indicate which goal she chose at each time."}
+
+# . -----------------------------------------------------------------------
+
+
+# . -----------------------------------------------------------------------
+
+
+# . -----------------------------------------------------------------------
+
+
+# The Comp Model ----------------------------------------------------------
+
+set.seed(3)
+
+
+experience <- function(){
+  
+  value <- rnorm(1,0,1)
+  return(value)
+  
+}
+
+time <- 20
+b0 <- 0.3
+b1 <- 0.3
+utility_a_start <- 0.2
+utility_b_start <- 0.4
+
+
+df_matrix <- matrix(, ncol = 8, nrow = time)
+counter <- 0
+
+for(i in 1:time){
+  counter <- counter + 1
+  
+  
+  
+  
+  
+  
+  # first time point --------------------------------------------------------
+  
+  
+  if(i == 1){
+    
+    # time
+    df_matrix[counter, 1] <- i
+    # utility for goal A
+    df_matrix[counter, 2] <- utility_a_start
+    # utility for goal B
+    df_matrix[counter, 3] <- utility_b_start
+    # likelihood for goal A
+    df_matrix[counter, 4] <- 1 / 1 + exp(df_matrix[counter, 2])
+    likelihood_a <- df_matrix[counter, 4]
+    # likelihood for goal B
+    df_matrix[counter, 5] <- 1 / 1 + exp(df_matrix[counter, 3])
+    likelihood_b <- df_matrix[counter, 5]
+    # Goal choice
+    choice <- NULL
+    
+    if(likelihood_a > likelihood_b){
+      choice <- 1
+    }else{
+      choice <- 2
+    }
+    
+    df_matrix[counter, 6] <- choice
+    
+    
+    # Experience goal A if they choose A
+    experience_a_b <- c(0,0)
+    
+    if(choice == 1){
+      experience_a_b[1] <- experience()
+    }else{
+      experience_a_b[2] <- experience()
+    }
+    
+    # experience for goal A
+    df_matrix[counter, 7] <- experience_a_b[1]
+    # experience for goal B
+    df_matrix[counter, 8] <- experience_a_b[2]
+    
+    
+    
+    
+    
+    
+    
+    
+    # other time points -------------------------------------------------------
+    
+    
+  }else{
+    
+    
+    
+    # time
+    df_matrix[counter, 1] <- i
+    # utility for goal A
+    df_matrix[counter, 2] <- b0*df_matrix[counter - 1, 2] + b1*df_matrix[counter - 1, 7]
+    # utility for goal B
+    df_matrix[counter, 3] <- b0*df_matrix[counter - 1, 3] + b1*df_matrix[counter - 1, 8]
+    # likelihood for goal A
+    df_matrix[counter, 4] <- 1 / 1 + exp(df_matrix[counter, 2])
+    likelihood_a <- df_matrix[counter, 4]
+    # likelihood for goal B
+    df_matrix[counter, 5] <- 1 / 1 + exp(df_matrix[counter, 3])
+    likelihood_b <- df_matrix[counter, 5]
+    # Goal choice
+    choice <- NULL
+    
+    if(likelihood_a > likelihood_b){
+      choice <- 1
+    }else{
+      choice <- 2
+    }
+    
+    df_matrix[counter, 6] <- choice
+    
+    
+    # Experience goal A if they choose A
+    experience_a_b <- c(0,0)
+    
+    if(choice == 1){
+      experience_a_b[1] <- experience()
+    }else{
+      experience_a_b[2] <- experience()
+    }
+    
+    # experience for goal A
+    df_matrix[counter, 7] <- experience_a_b[1]
+    # experience for goal B
+    df_matrix[counter, 8] <- experience_a_b[2]
+    
+    
+    
+  }
+  
+  
+  
+}
+
+
+
+# ... ---------------------------------------------------------------------
+
+
+# ... ---------------------------------------------------------------------
+
+
+# ... ---------------------------------------------------------------------
+
+
+# Graphs ------------------------------------------------------------------
+
+
+
+library(ggplot2)
+library(tidyverse)
+library(stringr)
+library(stringi)
+library(gridExtra)
+
+df <- data.frame(df_matrix)
+names(df) <- c('Time', 'Utility_a', 'Utility_b', 'Likelihood_a', 'Likelihood_b', 'Choice', 'Experience_a', 'Experience_b')
+
+df_long <- df %>%
+  gather(Utility_a, Utility_b, Likelihood_a, Likelihood_b, Experience_a, Experience_b, key = 'goal_initial', value = 'Utility') %>%
+  mutate(Goal = 
+           ifelse(goal_initial == 'Utility_a', 'A', 
+                  ifelse(goal_initial == 'Utility_b', 'B', 
+                         ifelse(goal_initial == 'Likelihood_a', 'A',
+                                ifelse(goal_initial == 'Likelihood_b', 'B',
+                                       ifelse(goal_initial == 'Experience_a', 'A', 'B'))))), 
+  )
+
+df_long$goal_initial <- str_replace(df_long$goal_initial, '_a', '')
+df_long$goal_initial <- str_replace(df_long$goal_initial, '_b', '')
+
+df_long <- df_long %>%
+  spread(key = goal_initial, value = Utility)
+
+df_long$Choice <- ifelse(df_long$Choice == 1, 'A', 'B')
+
+df_long$Choice <- as.character(df_long$Choice)
+df_long$Goal <- as.character(df_long$Goal)
+
+
+df_text <- df_long %>%
+  select(Time, Choice)
+
+use_these <- seq(from = 1, to = 40, by = 2)
+
+df_text <- df_text[use_these, ]
+df_text$Utility <- c(rep(0.65, 20))
+df_text$Goal <- df_text$Choice
+
+# ... ---------------------------------------------------------------------
+
+
+# ... ---------------------------------------------------------------------
+
+
+# ... ---------------------------------------------------------------------
+
+
+# Goal choice over time above utility ------------------------------------------------
+
+
+plot1 <- ggplot(df_long, aes(x = Time, y = Utility, linetype = Goal, shape = Goal)) + 
+  geom_point() + 
+  geom_line() + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black")) +
+  geom_text(data = df_text, aes(label = Choice, fontface = 'bold'))
+
+
+plot1
+
+```
+
+
+
+
+```{r Figure2, fig.cap="The effect of experiences on utility across time."}
+
+
+
+# ... ---------------------------------------------------------------------
+
+
+# ... ---------------------------------------------------------------------
+
+
+# ... ---------------------------------------------------------------------
+
+
+# Goal choice over time above utility and experiences ---------------------
+
+
+
+# Tidy --------------------------------------------------------------------
+
+
+
+df_long_long <- df %>%
+  gather(Utility_b, Utility_a, Likelihood_a, Likelihood_b, Experience_a, Experience_b, key = 'variable', value = 'Value') %>%
+  mutate(Goal = 
+           ifelse(variable == 'Utility_b', 'B',
+                  ifelse(variable == 'Likelihood_b', 'B', 
+                         ifelse(variable == 'Experience_b', 'B',
+                                ifelse(variable == 'Utility_a', 'A',
+                                       ifelse(variable == 'Likelihood_a', 'A', 'A'))))))
+
+df_long_long$variable <- str_replace(df_long_long$variable, '_b', '')
+df_long_long$variable <- str_replace(df_long_long$variable, '_a', '')
+
+
+df_wo_l <- df_long_long %>%
+  filter(variable != 'Likelihood')
+
+df_utility_a <- df_wo_l %>%
+  filter(variable == 'Utility' & Goal == 'A')
+
+df_exp_a <- df_wo_l %>%
+  filter(variable == 'Experience' & Goal == 'A')
+
+df_utility_b <- df_wo_l %>%
+  filter(variable == 'Utility' & Goal == 'B')
+
+df_exp_b <- df_wo_l %>%
+  filter(variable == 'Experience' & Goal == 'B')
+
+
+# Plots -------------------------------------------------------------------
+
+
+
+ue_a <- ggplot() + 
+  geom_point(data = df_utility_a, aes(x = Time, y = Value)) + 
+  geom_line(data = df_utility_a, aes(x = Time, y = Value)) + 
+  geom_bar(data = df_exp_a, stat = 'identity', aes(x = Time, y = Value), fill = 'gray85', color = 'black', alpha = 0.2) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line.y = element_line(colour = "black",),
+        axis.line.x = element_blank(),
+        axis.text.x = element_blank()) +
+  scale_x_continuous(breaks = NULL) + 
+  labs(title = 'Goal A') +
+  xlab(NULL) +
+  annotate('text', x = 2, y = 1.5, label = 'Experiences = ') + 
+  annotate('rect', xmin = 4.5, xmax = 5.5, ymin = 1.4, ymax = 1.6, alpha = 0.2, color = 'black', fill = 'gray85') + 
+  annotate('text', x = 2, y = 1, label = 'Utility = ') + 
+  annotate('segment', x = 4.5, xend = 5.5, y = 1, yend = 1, color = 'black') +
+  annotate('pointrange', x = 4.5, y = 1, ymin = 1, ymax = 1, color = 'black', size = 0.2) +
+  annotate('pointrange', x = 5.5, y = 1, ymin = 1, ymax = 1, color = 'black', size = 0.2)
+
+
+
+ue_b <- ggplot() + 
+  geom_point(data = df_utility_b, aes(x = Time, y = Value)) + 
+  geom_line(data = df_utility_b, aes(x = Time, y = Value)) + 
+  geom_bar(data = df_exp_b, stat = 'identity', aes(x = Time, y = Value), fill = 'gray85', color = 'black', alpha = 0.2) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black")) +
+  labs(title = 'Goal B') 
+
+
+grid.arrange(ue_a, ue_b)
+
+```

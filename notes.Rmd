@@ -1,0 +1,127 @@
+---
+title: "goal choice amr"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
+```
+
+Theories of goal choice abound in organizational scholarship (cites) and are among the most actionable for employees and organizational collectives (cite). Most of these theories build into a utility function. For a theory, however, we also need 
+
+time (baumesiter), the control structure (newell; simon), the environment (simon ant cite; events theory; trait activation theory; weiss affective events theory). In other words, the theory needs to capture the control structure to fit everything together (newell). 
+
+in other words, not just one function, but how the function is updated to reflect changing experiences
+
+jerker:
+here is a phenomena
+here is our explanation
+that explanation is wrong
+in this article we provide an alternative explanation
+
+kuwabar:
+this topic is crucial for any employee, but people struggle with it. why? we explore that gap here
+
+steel:
+theories are everything for us; but each field seems to have its own view
+here, I integrate
+
+me:
+here is a phenomena. the problem of goal choice (schmidt deshon)
+here is our explanations.
+our explanations do not capture the full story
+in this article we provide a theory that subsumes
+
+
+Employees face multiple, conflicting goals as they complete their work day. Core tasks, such as projects, skill acquisition and networking opportunities, data analyses, and reports flood employee experiences, along with an array of superficial demands that characterize modern work, such as emails, meetings, and phone calls. In these environments, how do individuals decide which goal to pursue? Goal choice theories evoke utility (cites) or discrepancy functions (cites) to explain this operation, such that employees choose goal 'A' over goal 'B' to the extent that the function output of 'A' is greater than that of 'B.' These explanations are among the most actionable organizational theories due to their concrete predictions (van eerde, Minor 1980), but their focus fixates on how to best represent the individual goal-choice function and neglects how the decision process updates and evolves with the dynamics of the environment (luce). Goal choice theories across psychology, economics, and sociology largely agree on the necessary function parameters (steel), therefore it is time to move beyond specifying a single equation and build a theory that describes the **process** of goal decision updating. 
+
+The current article presents a theory of goal choice that subsumes prior work and embeds the individual utility function in a larger framework that makes both competing and complimentary predictions to that of previous theories. The framework is grounded in experience sampling (denrell) where the likelihood of choosing a goal is based not only on a utility or discrepancy function, but also on prior experiences situated in the context of a dynamic environment with fluctuating performance episodes. Specifically, individuals choose only among goals made available by the environment, and their likelihood depends on whether past experiences of each were positive or negative. Although utility or discrepancy functions (referred to hereafter as U functions) influence the process, the theory presented here shows how they are only one piece to a larger goal decision framework. Newell () and Meehl () argued that, if theories are to be useful, they require integrating individual components into a 'control structure,' which is a computer programming phrase used to describe an entire block of code rather than specific functions or variable assignments. In the current work, I attempt to do just that. 
+
+I begin by describing existing explanations of goal choice and their common components. After explicating the importance of additional components, such as the environment, I present a likelihood function that represents a major component of the theory. This piece will incorporate both U and additional pieces that I explain. I then discuss how prior experiences inform the probability of sampling a situation (or goal) again and its implications for the model. The entire model and its implications will be discussed leading into the conclusion.
+
+other thoughts
+- choice decision theory. not a goal striving theory (effort)
+- prior work on task success and how that influences future effort and performance. Here, performance is random, but likelihood of sampling is simply a function of prior experiences. not a matter of how well the person will perform, a matter of sampling the goal based on prior experiences.
+
+
+# existing explanations of goal choice
+# research in this area has uncovered important stuff. nevertheless, they miss some indirect ways: environment, and sampling
+# Environment
+- simon
+-schmidt deshon 
+-
+# likelihood function
+# prior experiences
+ -probability matching
+ -reinforcement
+ -sampling people again
+ -jerker
+ -smapling goals again
+# full model
+# predictions
+
+
+
+
+all theories agree on utility equation for likelihood of choosing a goal. 
+here is what they incorporate; expectancy; reward; needs; time; individual differences in time sensitivity
+importance of environment (simon, kanfer, kerr rewarding B, Johns)
+likelihood therefore E + U
+
+
+# Choosing a Goal
+
+Goals refer to desired states (Austin & Vancouver), and the decision literature is concerned with how individuals choose which goal to pursue. This notion is distinct from theories of goal-striving (cites) which describe performance strategies and effort investment usually in the pursuit of a single goal (for exceptions, see Vancouver or Schimdt). Theories of goal choice and decision making are present in economics, psychology, and sociology, and are nicely integrated by Steel and Konig. Their temporal motivation theory (TMT) incorporates hyperbolic discounting, expectancy theory, cumulative prospect theory, and need theory into an integrated utility function that predicts goal choice. The details of those theories are not crucial here, as each present variants of a utility equation, such that:
+
+\begin{equation}
+U = f(X_{theory})
+\end{equation}
+\noindent where $U$ represents utility (a preference for a certain goal) and $X$ is a set of variables whose formal representation depends on the theory. The set of variables across each theory, $X$, are not the focus of this paper so they will only be briefly described here. Core variables in the set of $X$ typically include expectancy, valence, and deadline/outcome time. Expectancy refers to a subjective belief about the likelihood of achieving a given goal. Valence is how much an individual values the outcome that follows goal attainment, and time in TMT refers when the goal outcome is received (how distant the reward is). As stated in Steel and Konig, the consistency of utility functions across fields for describing goal choice processes is greater than one would assume, and I therefore use $U$ as a starting point to expand on. That is, theories of goal choice largely agree that some form of subjective utility influences decisions, so it is a crucial component to include. A common critique of these functions, and motivation theories in general, however, is their neglect of the environment (simon, kanfer, kerr, johns). In the next section, I describe why it is necessary to incorporate the environment and express my first extention of $U$ for describing goal choice. 
+
+# The Environment
+
+Any description of behavior must account for the environment in which it occurs (simon 1992) because the environment constrains what actions are possible (simon 1956). Doing so is suprisingly difficult, however, as attested to by the repeated calls for more research attention to the context or environment in which motivated processes occur (kanfer, johns). When considered in context, behavior can largely be seen as a reflection of the environment (simon 1981). For example, wanting A but rewarding B produces B (kerr); individuals act in relation to the culture they perceive in their work context (kozlow?), and effort states fluctuate in relation to the time demands of the situation (schmidt deshon). A critical component to incorporate into current theories of goal-choice, therefore, is the environment. Consider a few examples: An employee has a high utility for goal 'A' but is forced to work on goal 'B' by their manager; A co-worker is sick and asks another individual to cover their tasks for the day; Low performance at a neighboring branch requires an individual to put off their current work and train employees at the other branch; A Wi-Fi outage constrains an individual's set of goal options; An email with a provacative subject line draws an individual's attention away from their current goal. These examples are simple but are by no means uncommon, yet they are difficult to represent with only utility. Moreover, they reveal that some environmental complexities are consistent, or enduring, while others are random and difficult to predict. Instantiating this notion into a representation of goal choice, therefore, can be done by representing goals with likelihoods, where an individual has a probability of choosing a goal at a given moment with respect to the environmental constraints. Stated formally:
+
+\begin{equation}
+\Theta{a} = E * U
+\end{equation}
+\noindent where $\Theta{a}$ represents the likelihood of choosing goal 'A,' which is a function of both the environment, $E$, and utility, $U$. Here, if the environment places a restraint on goal 'A' such that it cannot occur, then $E$ would be zero and the likelihood of choosing 'A' would also become zero. Although this is a simple representation of the environment, Meehl () suggested creating simple formulas such as the one presented despite an incomplete understanding of the 'true' function. We may never be able to adequately capture the environment, but it is important to represent nontheless. 
+
+# Static utility theory representations
+
+Respresentations of this type have been successful for describing and predicting behavior in some domains, but their static nature limits how applicable they can be (luce). Steel and Konig responded to Luce's concern by formally including time in their utility function, such that outcomes far removed produce lower utility. Although incorporating deadlines is appropriate, simply including time as a variable does not make the equation dynamic. That is, when the utility function incorporates deadline time it is still represented as:
+
+\begin{equation}
+U = f(X_{theory})
+\end{equation}
+\noindent but a variable, $T$, which is the amount of time until a goal's deadline, is not included in the set of $X$. This equation is not dynamic, but it can be made so as follows:
+
+\begin{equation}
+U_{t} = b_0 U_{(t-1)} + f(X_{theory})
+\end{equation}
+\noindent where $U$ is now dynamic and $b_0$ represents the coefficient relating prior to current utility.
+
+Having presented how to represent a utility that can update over time. Now we present the first piece of the model.
+I am concerned here with how U updates, not on the specific nature of U.
+
+prior experiences matter.
+evidence
+how to model updating utility if a goal was selected and performance occurred
+
+another critical piece is the environment
+
+
+# Outline
+
+
+
+all theories agree on utility equation for likelihood of choosing a goal. 
+here is what they incorporate; expectancy; reward; needs; time; individual differences in time sensitivity
+importance of environment (simon, kanfer, kerr rewarding B, Johns)
+likelihood therefore E + U
+
+
+One criticism of utiilty is that they are static. They need a way to update
+

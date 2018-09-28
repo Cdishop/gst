@@ -1,0 +1,75 @@
+---
+output: pdf_document
+---
+
+# Methods
+
+## Monte Carlo
+
+The focus of the current investigation is on relationship directionality inferences given the research design and modeling strategy described above. We evaluate parameter estimate accuracy across a variety of simulated data environments (i.e., worlds) while using HLM. We also incorporate different lag structures because beliefs about the time required for a process to unfold drive sampling and modeling strategies. Our simulations, therefore, establish worlds with various directionality and lag effects. 
+	
+## Simulation Worlds
+
+All simulations are generated to represent key aspects of the event-sampling studies presented above. Based on a review of this literature, a number of parameters are held constant across the simulations. First, we chose a sample size of 72 based on the average number of participants across the articles. Only one sample size is used because the range in empirical work is relatively small (55 to 80). Second, the causal coefficients (described below) are set to 0.15 based on the regression coefficients documented in the literature (ranging from 0.10 to 0.20). Third, we simulate 200 time points and then use the last 20 for statistical analysis. This allows for a "burn-in period"" so the dynamic system reaches equilibrium and structures the data set consistent with the number of days used in a typical ESM study. 
+	
+We then manipulate the direction of effects across three simulations, creating three different “true worlds.” In the first simulated world, data are generated such that $x$ causes $y$. That is, the causal structure underlying the data generating process is consistent with what researchers believe it to be in the ESM studies described above. The data generating equation for $y$ in this set of simulations is:
+
+\begin{equation}
+y_{it} = b_{0_i} + b_1 y_{i(t-1)} + b_2 x_{i(t-n)} + e_{it}
+\end{equation}
+\noindent 
+where all terms are defined above and $n$ represents the lag structure which systematically varied between zero and five. Data are generated in the reverse direction in the second simulated world such that $y$ causes $x$:
+
+\begin{equation}
+x_{it} = b_{0_i} + b_1 x_{i(t-1)} + b_2 y_{i(t-n)} + e_{it}
+\end{equation}
+\noindent
+where all terms are defined above. In the final simulation world, a third variable, $z$, causes both $x$ and $y$. The generation equations for $x$ and $y$ are, respectively:
+
+\begin{equation}
+x_{it} = b_{0_i} + b_1 x_{i(t-1)} + b_2 z_{i(t-n)} + e_{it}
+\end{equation}
+\noindent
+\begin{equation}
+y_{it} = b_{0_i} + b_1 y_{i(t-1)} + b_2 z_{i(t-n)} + e_{it}
+\end{equation}
+\noindent
+where all terms are defined above.
+
+Across each simulation world, the causal coefficients are fixed but the lags vary. For example, the first simulation set is initially generated with concurrent relationships between $x$ and $y$. Increasingly longer lags are then generated through a string of simulations within each world. That is, the second simulation generates one-lag relationships, the third two-lag relationships, and so on. We did this until we reached five lags in each simulation world. Finally, the third simulation world consists of both equivalent and non-equivalent lag structures from $z$ to $x$ and $z$ to $y$. In other words, the causal lags from $z$ to $x$ and $y$ initially vary in the same manner (one-lag, two-lag, three-lag, etc.) and then alter sequentially (concurrent to $x$ and one-lag to $y$; concurrent to $x$ and two-lag to $y$, etc.). 
+
+## Simulation Models
+
+Two HLM models are then used to estimate the model parameters. One model, consistent with the research body described, includes a predictor term representing the outcome variable at the prior time point. The second model does not include this term. In both models, and across all simulation worlds, the presumed independent variable ($x$) is person-mean centered to mirror the analytic technique commonly used in ESM studies.
+
+We estimated the HLM parameters using the nlme package in R [@R-base] and significance test results on the $b_1$ term are saved to assess performance. Within each simulation world, and for every lag structure, we assess five hundred replicates. An outline of the simulation routines is shown in table 1. For example, we conduct six total simulations (each individually assessed 500 times) for simulation world one. One simulation generates concurrent relationships between $x$ and $y$, and is then assessed using the two types of HLM models shown in the table. Subsequently, a second simulation generates lag-one relationships between $x$ and $y$, which are evaluated with the same models. This trend continues until we reach five lags. 
+
+```{r results = "asis"}
+
+table_df <- data.frame(
+  world     = c("1","1","2","2","3","3"),
+  direction = c("$X \\Rightarrow Y$","$X \\Rightarrow Y$","$Y \\Rightarrow X$","$Y \\Rightarrow X$","$Z \\Rightarrow X$","$Z \\Rightarrow Y$"),
+  model     = c("$y_{it}= b_0 + b_1 x_{it} + b_2 y_{i{(t-1)}} + e_{it}$",
+                "$y_{it}= b_0 + b_1 x_{it} + e_{it}$",
+                "$y_{it}= b_0 + b_1 x_{it} + b_2 y_{i{(t-1)}} + e_{it}$",
+                "$y_{it}= b_0 + b_1 x_{it} + e_{it}$",
+                "$y_{it}= b_0 + b_1 x_{it} + b_2 y_{i{(t-1)}} + e_{it}$",
+                "$y_{it}= b_0 + b_1 x_{it} + e_{it}$"
+                )
+)
+names(table_df) <- c("Simulation World", "Data Generating Direction", "HLM Model Applied")
+
+apa_table(
+  table_df
+  , caption = "Structure of Monte Carlo simulation worlds. For each world, lags varied from zero to five."
+  , note      = "In all conditions $b_1$ is the focal parameter estimate."
+  , escape = FALSE
+)
+```
+
+
+## Type I & II Errors
+
+Our main result of interest is the proportion of significant $b_1$ terms for each simulation. Type I errors occur when $b_1$ is significant above the nominal rate ($\alpha = 0.05$) despite the true data generating process stemming from the second or third simulation world. That is, a Type I error occurs when parameter estimates relating scores on $x$ to $y$ are significant above the nominal rate despite their being no influence of $x$ on $y$. The results presented are the proportion of times across the 500 replications that the null hypothesis is rejected. Rejection rates above the nominal rate that occur in the second or third simulation worlds, therefore, represent misguided directionality inferences.
+
+We also draw attention to null results across the various lag structures. A lag assumption is always implied in longitudinal research, if not explicitly then implicitly by the model. Even if the process works in the proposed direction the model might fail to capture processes with longer or shorter lags. These Type II errors will occur in the form of alpha levels at the nominal level in the first simulation world where $x$ causes $y$. 
