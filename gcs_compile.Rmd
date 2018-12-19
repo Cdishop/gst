@@ -24,7 +24,7 @@ abstract: |
   Goal choice theories have been criticized for their static representation and neglect of the environment. In this paper, I develop goal sampling theory (GST) to appease these critiques and extend our understanding of goal choices beyond momentary preferences and into dynamic updating and global sampling behavior across time. GST draws from temporal motivational theory (TMT), sampling models of impression formation, and organizational theory on how the environment constrains behavior and situates aspects of each into a formal representation of goal sampling. Doing so addresses the limitations of our prior thinking, introduces new concepts and predictions, and provides a mathematical framework that lends itself to computational modeling.
   
 keywords          : "Goals, sampling, dynamics, updating, choice, decision-making"
-wordcount         : "95"
+wordcount         : "106"
 
 bibliography      : ["references.bib"]
 

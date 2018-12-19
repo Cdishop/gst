@@ -1,5 +1,5 @@
-\documentclass[english,man]{apa6}
-
+\documentclass[english,,man]{apa6}
+\usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -9,140 +9,115 @@
 \else % if luatex or xelatex
   \ifxetex
     \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
   \else
     \usepackage{fontspec}
   \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Goal Sampling Theory},
+            pdfauthor={Christopher R. Dishop},
+            pdfkeywords={Goals, sampling, dynamics, updating, choice, decision-making},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,main=english]{babel}
+\else
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+\fi
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
 
-% Table formatting
-\usepackage{longtable, booktabs}
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+
+  \title{Goal Sampling Theory}
+    \author{Christopher R. Dishop\textsuperscript{1}}
+    \date{}
+  
+\shorttitle{GOAL SAMPLING}
+\affiliation{
+\vspace{0.5cm}
+\textsuperscript{1} Michigan State University}
+\keywords{Goals, sampling, dynamics, updating, choice, decision-making\newline\indent Word count: 106}
+\usepackage{csquotes}
+\usepackage{upgreek}
+\captionsetup{font=singlespacing,justification=justified}
+
+\usepackage{longtable}
 \usepackage{lscape}
-% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
-\usepackage{multirow}		% Table styling
-\usepackage{tabularx}		% Control Column width
-\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
-\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage[flushleft]{threeparttable}
+\usepackage{threeparttablex}
 
-% Create new environments so endfloat can handle them
-% \newenvironment{ltable}
-%   {\begin{landscape}\begin{center}\begin{threeparttable}}
-%   {\end{threeparttable}\end{center}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
 
-\newenvironment{lltable}
-  {\begin{landscape}\begin{center}\begin{ThreePartTable}}
-  {\end{ThreePartTable}\end{center}\end{landscape}}
-
-  \usepackage{ifthen} % Only add declarations when endfloat package is loaded
-  \ifthenelse{\equal{\string man}{\string man}}{%
-   \DeclareDelayedFloatFlavor{ThreePartTable}{table} % Make endfloat play with longtable
-   % \DeclareDelayedFloatFlavor{ltable}{table} % Make endfloat play with lscape
-   \DeclareDelayedFloatFlavor{lltable}{table} % Make endfloat play with lscape & longtable
-  }{}%
-
-
-
-% The following enables adjusting longtable caption width to table width
-% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
 \makeatletter
 \newcommand\LastLTentrywidth{1em}
 \newlength\longtablewidth
 \setlength{\longtablewidth}{1in}
-\newcommand\getlongtablewidth{%
- \begingroup
-  \ifcsname LT@\roman{LT@tables}\endcsname
-  \global\longtablewidth=0pt
-  \renewcommand\LT@entry[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}%
-  \@nameuse{LT@\roman{LT@tables}}%
-  \fi
-\endgroup}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
 
 
-  \usepackage{graphicx}
-  \makeatletter
-  \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-  \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-  \makeatother
-  % Scale images if necessary, so that they will not overflow the page
-  % margins by default, and it is still possible to overwrite the defaults
-  % using explicit options in \includegraphics[width, height, ...]{}
-  \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            pdfauthor={},
-            pdftitle={Goal Sampling Theory},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=black,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
+\DeclareDelayedFloatFlavor{ThreePartTable}{table}
+\DeclareDelayedFloatFlavor{lltable}{table}
+\DeclareDelayedFloatFlavor*{longtable}{table}
+\makeatletter
+\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
+\makeatother
+\usepackage{lineno}
 
-\setlength{\parindent}{0pt}
-%\setlength{\parskip}{0pt plus 0pt minus 0pt}
+\linenumbers
 
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\authornote{Christopher R. Dishop, Department of Psychology,
+Michigan State University
 
-\ifxetex
-  \usepackage{polyglossia}
-  \setmainlanguage{}
-\else
-  \usepackage[english]{babel}
-\fi
+Correspondence concerning this article should be addressed to
+Christopher R. Dishop, 316 Physics Rd \#348, East Lansing, MI 48824.
+E-mail:
+\href{mailto:dishopch@msu.edu}{\nolinkurl{dishopch@msu.edu}}}
 
-% Manuscript styling
-\captionsetup{font=singlespacing,justification=justified}
-\usepackage{csquotes}
-\usepackage{upgreek}
-
- % Line numbering
-  \usepackage{lineno}
-  \linenumbers
-
-
-\usepackage{tikz} % Variable definition to generate author note
-
-% fix for \tightlist problem in pandoc 1.14
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-% Essential manuscript parts
-  \title{Goal Sampling Theory}
-
-  \shorttitle{GOAL SAMPLING}
-
-
-  \author{Christopher R. Dishop\textsuperscript{1}}
-
-  \def\affdep{{""}}%
-  \def\affcity{{""}}%
-
-  \affiliation{
-    \vspace{0.5cm}
-          \textsuperscript{1} Michigan State University  }
-
-  \authornote{
-    \newcounter{author}
-    Christopher R. Dishop, Department of Psychology, Michigan State
-    University
-
-                      Correspondence concerning this article should be addressed to Christopher R. Dishop, 316 Physics Rd \#348, East Lansing, MI 48824. E-mail: \href{mailto:dishopch@msu.edu}{\nolinkurl{dishopch@msu.edu}}
-                }
-
-
-  \abstract{Goal choice theories have been criticized for their static
+\abstract{
+Goal choice theories have been criticized for their static
 representation and neglect of the environment. In this paper, I develop
 goal sampling theory (GST) to appease these critiques and extend our
 understanding of goal choices beyond momentary preferences and into
@@ -152,37 +127,27 @@ formation, and organizational theory on how the environment constrains
 behavior and situates aspects of each into a formal representation of
 goal sampling. Doing so addresses the limitations of our prior thinking,
 introduces new concepts and predictions, and provides a mathematical
-framework that lends itself to computational modeling.}
-  \keywords{Goals, sampling, dynamics, updating, choice, decision-making \\
-
-    \indent Word count: 95
-  }
+framework that lends itself to computational modeling.
 
 
-
-
+}
 
 \usepackage{amsthm}
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}
-\newtheorem{corollary}{Corollary}
-\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{proposition}{Proposition}[section]
 \theoremstyle{definition}
-\newtheorem{example}{Example}
+\newtheorem{example}{Example}[section]
 \theoremstyle{definition}
-\newtheorem{exercise}{Exercise}
+\newtheorem{exercise}{Exercise}[section]
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 \newtheorem*{solution}{Solution}
 \begin{document}
-
 \maketitle
-
-\setcounter{secnumdepth}{0}
-
-
 
 Employees often face multiple, conflicting goals as they complete their
 work day. Core tasks, such as skill acquisition and networking
@@ -197,41 +162,41 @@ over goal \enquote{B} to the extent that \enquote{A} produces greater
 utility. These explanations are among the most actionable organizational
 theories due to their concrete predictions (Miner, 1980; Van Eerde \&
 Thierry, 1996a), but they have largely focused on single, static
-equations that neglect how the decision process updates and evolves with
-the dynamics of the environment (Busemeyer, Townsend, \& Stout, 2002;
-Luce, 1995). Goal choice theories across psychology, economics, and
-sociology largely agree on the necessary function parameters (Steel \&
-König, 2006), therefore it is time to move beyond specifying a single
-equation and build a theory that describes the \emph{process} of goal
-choice updating.
+equations that neglect how the decision process updates and evolves
+alongide the constraints of the environment (Busemeyer, Townsend, \&
+Stout, 2002; Luce, 1995). Goal choice theories across psychology,
+economics, and sociology largely agree on the necessary function
+parameters (Steel \& König, 2006), therefore it is time to move beyond
+specifying a single equation and build a theory that describes the
+\emph{process} of goal choice updating.
 
 I present a theory of goal choice that subsumes prior work and embeds
 the individual utility function in a framework that makes both competing
 and complimentary predictions. The framework is grounded in experience
-sampling (Denrell, 2005) where the likelihood of choosing a goal is
-based not only on a utility function, but also on prior experiences
-situated in a dynamic environment. Specifically, individuals choose only
-among goals made available by the environment, and this choice depends
-on whether prior experiences with each were positive or negative.
-Although utility functions (referred to hereafter as \(U\) functions)
-influence this process, the theory presented here shows how they are
-only one piece to a larger goal decision framework. Newell (1973) and
-Meehl (1967, 1978) argued that, if theories are to be useful, they
-require integrating individual components and specifying a
-\enquote{control structure,} which is a computer programming phrase used
-to describe the flow across an entire block of code rather than specific
-functions or variable assignments. In the current work, I attempt to do
-just that.
+sampling (Denrell, 2005, 2007) where the likelihood of choosing a goal
+is based not only on a utility function, but also on experiences, the
+constraints of where utility was in the past, and the demands on the
+environment. Specifically, individuals choose only among goals made
+available by the environment and this choice depends on whether prior
+experiences with each were positive or negative. Although utility
+functions (referred to hereafter as \(U\) functions) influence this
+process, the theory presented here shows how they are only one piece to
+a larger goal decision framework. Newell (1973) and Meehl (1967, 1978)
+argued that, if theories are to be useful, they require integrating
+individual components and specifying a \enquote{control structure,}
+which is a computer programming phrase used to describe the flow across
+an entire block of code rather than specific functions or variable
+assignments. In the current work, I attempt to do just that.
 
 In this paper I unpack goal sampling theory (GST), a theory that extends
 prior work and uses a simple sampling model to unify different
 perspectives and ultimately explain goal choice updating. In doing so, I
 make four contributions. First, I explain goal sampling dynamics. Prior
 work includes time as a parameter in the various utility equations, but
-as I will show, simply including time in the parameter space does not
-make the equation dynamic. Dynamics, stated simply, refers to a system
-with memory where the past matters. This notion is essential for
-capturing how something updates across time, and incorporating it here
+simply including time in the parameter space does not make the equation
+dynamic. Dynamics, stated simply, refers to a branch of
+mathematics/mechanics where the crucial notion is memory -- the past
+constrains what happens next (Kondrashov, 2016). Incorporating this idea
 provides an explanation beyond our previous knowledge and forces
 empirical work to consider updating over time. Second, the environment
 is a fundamental aspect in GST. Organizational theorists have been
@@ -280,60 +245,57 @@ section below.
 To develop GST, I draw from and extend Denrell and colleague's (2005;
 2007) model of impression sampling and Steel and Konig's (2006) theory
 of goal choice to explain how and why goal choices update over time -- a
-process that I refer to as \enquote{goal sampling.} I choose to explain
-individual components sequentially, rather than presenting the entire
+process that I call \enquote{goal sampling.} Each individual component
+will be disussed sequentially, rather than presenting the entire
 theoretical framework upfront, to simplify the equations and clearly
-specify why each aspect is important. I start with existing explanations
-of goal choice and describe their common components. I then unpack the
-importance of the environment and describe how it informs decisions
-about which goal to pursue. Subsequently, I describe how to incorporate
-dynamics into the aforementioned pieces that appropriately situates the
-theory over time and clearly specifies a process that can update. Armed
-with an understanding of each individual component, I end with the
-entire theoretical sampling framework and conclude with its
-implications.
+specify what each aspect represents. Please note that the paper was
+written to (hopefully) facilitate clarity: GST is discussed in full only
+after presenting a variety of much simpler equations surrounding prior
+goal choice theories, their limitations, and components that I hope to
+improve upon.
 
-\section{Choosing a Goal}\label{choosing-a-goal}
+\hypertarget{choosing-a-goal}{%
+\section{Choosing a Goal}\label{choosing-a-goal}}
 
 Goals refer to internal representations of desired states (Austin \&
 Vancouver, 1996), and the decision literature is concerned with how
 individuals choose which goal to pursue. This notion is distinct from
 goal-striving, which describes effort and performance strategies usually
 in the pursuit of a single goal (for exceptions, see Schmidt \& DeShon,
-2007 or Vancouver, Weinhardt, and Schmidt (2010)). Theories of goal
-choice and decision making are present in economics, psychology, and
-sociology, and are nicely integrated by Steel and König (2006). Their
-temporal motivation theory (TMT) incorporates hyperbolic discounting,
-expectancy theory, cumulative prospect theory, and need theory into an
-integrated \(U\) function that predicts goal choice. The details of
-those theories are not crucial here, as each delivers a variant of a
-utility equation, such that:
+2007; Vancouver, Weinhardt, \& Schmidt, 2010). Theories of goal choice
+and decision making are present in economics, psychology, and sociology,
+and are nicely integrated by Steel and König (2006). Their temporal
+motivation theory (TMT) incorporates hyperbolic discounting, expectancy
+theory, cumulative prospect theory, and need theory into an integrated
+\(U\) function that predicts goal choice. The details of those theories
+are not crucial here, as each delivers a variant of a utility equation,
+such that:
 
 \begin{equation}
 U = f(X_{theory})
-\end{equation}
+\end{equation} \noindent where \(U\) represents utility, or a preference
+for a certain goal, and \(X\) is a set of variables whose formal
+representation depends on the theory. The set of variables across each
+theory, \(X\), are not the focus of this paper so they will only be
+briefly described here. Core variables in the set typically include
+expectancy, valence, and deadline/outcome time. Expectancy refers to a
+subjective belief about the likelihood of achieving a goal. Valence is
+how much an individual values the outcome that follows goal attainment,
+and time in TMT refers to when the outcome is received (how distant the
+reward is). As stated in Steel and König (2006), the consistency of
+\(U\) functions across fields for predicting goal choices is greater
+than one would assume, and I therefore use \(U\) as a starting point to
+expand on. That is, theories of goal choice largely agree that some form
+of subjective utility influences decisions, so it is a crucial component
+to include. A common critique of these functions, and motivation
+theories in general, however, is their neglect of the environment
+(Johns, 2018; Kanfer \& Chen, 2016; Kerr, 1975; Simon, 1956). In the
+next section, I describe why it is necessary to incorporate the
+environment and express my first extension of \(U\) for describing goal
+choice.
 
-\noindent where \(U\) represents utility, or a preference for a certain
-goal, and \(X\) is a set of variables whose formal representation
-depends on the theory. The set of variables across each theory, \(X\),
-are not the focus of this paper so they will only be briefly described
-here. Core variables in the set typically include expectancy, valence,
-and deadline/outcome time. Expectancy refers to a subjective belief
-about the likelihood of achieving a goal. Valence is how much an
-individual values the outcome that follows goal attainment, and time in
-TMT refers to when the outcome is received (how distant the reward is).
-As stated in Steel and König (2006), the consistency of \(U\) functions
-across fields for predicting goal choices is greater than one would
-assume, and I therefore use \(U\) as a starting point to expand on. That
-is, theories of goal choice largely agree that some form of subjective
-utility influences decisions, so it is a crucial component to include. A
-common critique of these functions, and motivation theories in general,
-however, is their neglect of the environment (Johns, 2018; Kanfer \&
-Chen, 2016; Kerr, 1975; Simon, 1956). In the next section, I describe
-why it is necessary to incorporate the environment and express my first
-extension of \(U\) for describing goal choice.
-
-\section{The Environment}\label{the-environment}
+\hypertarget{the-environment}{%
+\section{The Environment}\label{the-environment}}
 
 Any description of behavior must account for the environment in which it
 occurs (Simon, 1992) because the environment constrains what actions are
@@ -388,8 +350,8 @@ the reward it provides and the nature of the situation.
 Exploratory/exploitive behaviors thus become more or less likely
 depending on context. Note that I am referring to the
 promotion/prevention and gain/loss framing as the \enquote{environment}
-because, despite there being literature on regulatory focus individual
-differences (Crowe \& Higgins, 1997), they were used as part of the task
+because, despite there being literature on a regulatory focus individual
+difference (Crowe \& Higgins, 1997), they were used as part of the task
 and therefore align more with the literature on job characteristics than
 individuals differences (Hackman \& Oldham, 1976).
 
@@ -405,7 +367,7 @@ lower creativity, and job richness can lead to stress in some cases
 the probability of certain behavior patterns regardless of whether or
 not they are positive. For example, overconfidence, while negative in
 some domains, is adaptable in environments that are novel,
-unpredictable, or poorly understood (D. D. Johnson \& Fowler, 2011).
+unpredictable, or poorly understood (Johnson \& Fowler, 2011).
 
 Contrary to the environment's limited appearance in organizational field
 work, we find it highlighted in many psychological theories. Events
@@ -447,19 +409,17 @@ formally:
 
 \begin{equation}
 \Theta_{A} = E * U_{A}
-\end{equation}
-
-\noindent where \(\Theta_{A}\) represents the likelihood of choosing
-goal \enquote{A,} which is a function of both the environment, \(E\),
-and the utility of \enquote{A}, \(U_{A}\). If the environment places
-restraints on goal \enquote{A} such that it cannot occur, then \(E\)
-would be zero and the likelihood of choosing \enquote{A} would also
-become zero. Although this is a simple representation of the
-environment, Meehl (1967) suggested creating simple formulas such as the
-one presented despite an incomplete understanding of the \enquote{true}
-function (see also Morgan \& Winship, 2015). We may never be able to
-adequately capture the environment, but it is important to represent
-nonetheless.
+\end{equation} \noindent where \(\Theta_{A}\) represents the likelihood
+of choosing goal \enquote{A,} which is a function of both the
+environment, \(E\), and the utility of \enquote{A}, \(U_{A}\). If the
+environment places restraints on goal \enquote{A} such that it cannot be
+sampled, then \(E\) would be zero and the likelihood of choosing
+\enquote{A} would also become zero. Although this is a simple
+representation of the environment, Meehl (1967) suggested creating
+simple formulas such as the one presented despite an incomplete
+understanding of the \enquote{true} function (see also Morgan \&
+Winship, 2015). We may never be able to adequately capture the
+environment, but it is important to represent nonetheless.
 
 \textbf{Strengths of Incorporating the Environment} By specifying
 equation two I reveal several strengths of GST that are missing in prior
@@ -478,12 +438,12 @@ than a deterministic choice. Researchers use probabilistic terms to
 describe valence and expectancy (Van Eerde \& Thierry, 1996b), but prior
 formulae for choosing goals imply that two choices at different points
 in time should be identical if the values in the set of \(X\) at each
-are the same. GST, conversely, acknowledges that goal choices may be
-different among the two despite equal utility values. The environment
-term, therefore, acts like a mathematical error term and captures the
-notion of different goal choices despite identical utility at two time
-points. Probabilitic models are also increasingly popular because even
-deterministic systems can create unpredictable behavior (M. Mitchell,
+are the same. GST, conversely, acknowledges that goal choices may differ
+from one moment compared to another despite equal utility at both. The
+environment term, therefore, acts like a mathematical error term and
+captures the notion of different goal choices despite identical utility
+across time. Probabilitic models are also increasingly popular because
+even deterministic systems can create unpredictable behavior (Mitchell,
 2009), GST therefore presents a model consistent with the broader
 scientific literature.
 
@@ -506,7 +466,8 @@ still left with a static theory because equation two has no way of
 updating over time. In the next section, therefore, I unpack my next
 extension: dynamic updating.
 
-\section{Dynamic Updating}\label{dynamic-updating}
+\hypertarget{dynamic-updating}{%
+\section{Dynamic Updating}\label{dynamic-updating}}
 
 Utility functions have been labeled as time insensitive, static, and
 unable to capture dynamic effects (Baumeister, Vohs, \& Oettingen, 2016;
@@ -519,34 +480,27 @@ time as a variable does not make the equation dynamic. That is, when the
 
 \begin{equation}
 U = f(X_{theory})
-\end{equation}
-
-\noindent but a variable, \(T\), which is the amount of time until a
-goal's deadline, is incorporated into the set of \(X\). Doing so
-captures subjective time, but it does not represent the process over
-time. To do so, we can change the equation to acknowledge two
+\end{equation} \noindent but a variable, \(T\), which is the amount of
+time until a goal's deadline, is incorporated into the set of \(X\).
+Doing so captures subjective time, but it does not represent the process
+over time. To do so, we can change the equation to acknowledge two
 assumptions: 1) that \(U\) can change over time
 
 \begin{equation}
 U_{t}
-\end{equation}
-
-\noindent and 2) that \(U\) is a function of current variables in the
-set of \(X\):
+\end{equation} \noindent and 2) that \(U\) is a function of current
+variables in the set of \(X\):
 
 \begin{equation}
 f(X_{theory})_{t}
-\end{equation}
-
-\noindent which gives us the following when we combine those ideas:
+\end{equation} \noindent which gives us the following when we combine
+those ideas:
 
 \begin{equation}
 U_{t} = f(X_{theory})_{t}.
-\end{equation}
-
-\noindent That is, utility at time four depends on the set of variables
-in \(X\) at time four, but utility at time five can be different from
-utility at time four.
+\end{equation} \noindent That is, utility at time four depends on the
+set of variables in \(X\) at time four, but utility at time five can be
+different from utility at time four.
 
 We now have a description of utility over time, but this representation
 is still not consistent with what most would consider dynamic modeling
@@ -570,12 +524,10 @@ autoregressive terms. The following:
 
 \begin{equation}
 U_{(t+1)} = b_0 U_{t}
-\end{equation}
-
-\noindent expresses utility dynamically, where \(U_{(t+1)}\) is utility
-at the next time point and \(b_0\) represents the coefficient relating
-current to future utility, which formally models self-similarity
-(DeShon, 2012; Vancouver \& Weinhardt, 2012).
+\end{equation} \noindent expresses utility dynamically, where
+\(U_{(t+1)}\) is utility at the next time point and \(b_0\) represents
+the coefficient relating current to future utility, which formally
+models self-similarity (DeShon, 2012; Vancouver \& Weinhardt, 2012).
 
 \textbf{Strengths of Incorporating Dynamics} Adding this dynamic element
 reveals additional strengths of GST. First, utility now has similarity
@@ -626,7 +578,8 @@ To cover these situations we need a way to incorporate experiences
 (defined below). In the next section I discuss a sampling model that
 helps us do so.
 
-\section{Experience Sampling}\label{experience-sampling}
+\hypertarget{experience-sampling}{%
+\section{Experience Sampling}\label{experience-sampling}}
 
 GST claims that goal experiences, or subjective evaluations of the
 feedback and rewards received from sampling a goal, combine with utility
@@ -651,26 +604,23 @@ and the sampling experience is as follows:
 
 \begin{equation}
 U_{(t+1)} = b_0 U_{t} + b_1 Ep_t
-\end{equation}
-
-\noindent where \(Ep_t\) represents the experience of a goal at time
-\(t\), \(b1\) is the weight relating experience to utility, and all
-other terms are defined above.
+\end{equation} \noindent where \(Ep_t\) represents the experience of a
+goal at time \(t\), \(b1\) is the weight relating experience to utility,
+and all other terms are defined above.
 
 Utility then influences the probability of sampling alongside the
 constraints of the environment at the next time point (\(E_{t+1}\)):
 
 \begin{equation}
 \Theta_{(t+1)} = E_{t+1} * {\frac {1}{1 + e^{U_{(t+1)}}}}
-\end{equation}
-
-\noindent where \(\Theta_{(t+1)}\) represents the likelihood of sampling
-at \(t+1\) and all other terms are defined above. I will thoroughly
-discuss the components of these equations in later sections. What is
-important here is to recognize that we mathematically represented the
-following: utility and the goal sampling experience influence utility at
-the next time point (equation 8), and at this time utility combines with
-the environment to inform the likelihood of goal sampling (equation 9).
+\end{equation} \noindent where \(\Theta_{(t+1)}\) represents the
+likelihood of sampling at \(t+1\) and all other terms are defined above.
+I will thoroughly discuss the components of these equations in later
+sections. What is important here is to recognize that we mathematically
+represented the following: utility and the goal sampling experience
+influence utility at the next time point (equation 8), and at this time
+utility combines with the environment to inform the likelihood of goal
+sampling (equation 9).
 
 \textbf{Strengths of Incorporating Experience Sampling} Incorporating
 experience sampling provides two strengths beyond prior work. First, I
@@ -736,7 +686,8 @@ not remove the goal; GST captures both of these situations.
 in GST is the same irrespective of whether or not the individual has
 completed the goal.}
 
-\section{Goal Sampling Theory}\label{goal-sampling-theory}
+\hypertarget{goal-sampling-theory}{%
+\section{Goal Sampling Theory}\label{goal-sampling-theory}}
 
 I have introduced important components for theories of goal choice.
 Utility perceptions inform goal preferences in the moment, the
@@ -865,7 +816,8 @@ be difficult without connecting them to the real world. After presenting
 these last implications and propositions I state the theory's
 assumptions and then close the paper.
 
-\subsection{Additional Implications}\label{additional-implications}
+\hypertarget{additional-implications}{%
+\subsection{Additional Implications}\label{additional-implications}}
 
 In GST individuals are assumed to have their own, true utility for each
 goal. Their beliefs about the utility of a goal at any moment is an
@@ -885,7 +837,7 @@ sampling it are \(\sim {N}(0,1)\). Now assume that her first experience
 is poor (e.g., -0.2). According to GST, she is unlikely to sample it
 again (unless forced to by the environment) and, in this case, her
 estimate of -0.2 represents a false negative. This is not a bias
-stemming from poor judgement or mis intent, rather it is one of limited
+stemming from poor judgement or misintent, rather it is one of limited
 information. She only has one sample from which to base her estimate, so
 the probability of that estimate being representative of actual utility
 is low, and it is unlikely to be corrected because experiences are
@@ -952,7 +904,36 @@ built a large number of samples centered about the true value.
 utility estimates than false positives where individuals are free to
 sample goals.}
 
-\section{Assumptions and Caveats}\label{assumptions-and-caveats}
+The examples used to describe propositions five through seven were
+technical. Here is a summary example that is less abstract. Imagine an
+employee who wants to be more friendly and therefore sets a goal to
+spend 20 minutes casually speaking with people in a neighboring
+department every other day. His first sample goes well. He felt immersed
+in the conversation, learned about other employees, found them polite
+and interesting, and ultimately believes that this sample of the goal
+\enquote{20 minutes of casual speaking} helped him become a bit more
+friendly. These feelings and outcomes, in sum, represent his experience
+of this specific sample. When he samples the goal again, however, he
+does not have a good experience. Instead, he feels that he annoyed the
+others and came off as a brown nose. This new experience then lowers his
+belief about the ability of this \enquote{casual speaking} goal to make
+him more friendly. As he continues to sample the goal his utility
+estimate bounces around across time and his experiences accumulate into
+an experience distribution. His utility estimate will be more accurate
+when he converses with other employees many times and builds a large
+experience distribution, compared to a situation where he only tries the
+goal once or twice (proposition 5). Moreover, after several bad
+conversation experiences he will have a low utility estimate and be
+unlikely to continue, which means that his utility estimate will not
+change (proposition 6). Finally, if we expand this example to 100
+employees who are free to sample the \enquote{conversation} goal we
+reach proposition 7. GST predicts that, over time, there will be a
+greater number of employees who falsely believe that the conversation
+goal is of no utility compared to the number of employees who falsely
+believe that the conversation goal is of great utility.
+
+\hypertarget{assumptions-and-caveats}{%
+\section{Assumptions and Caveats}\label{assumptions-and-caveats}}
 
 Presenting GST's equations also makes a variety of assumptions clear.
 First, this process is assumed to operate under conditions when sampling
@@ -1007,7 +988,8 @@ connection. It will be important for future research to understand when
 utility informs the distribution of possible experiences and when it
 does not.
 
-\section{Discussion}\label{discussion}
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
 
 In this article I discussed important components embedded in goal
 sampling. In doing so, I extended common utility equations seen
@@ -1018,8 +1000,8 @@ bodies of work, including organizational theory and empirical work on
 the environment, biased sampling models of impression formation, notions
 of dynamics and processes over time, and the foundational utility
 aspects that formed the opening of this paper. GST provides an
-explanation for how goal choices update, and understanding each aspect
-of the process leads to new and interesting predictions.
+explanation for how goal choices update and understanding each aspect of
+the process leads to new and interesting predictions.
 
 GST begins with a value concerning the experience of sampling a goal, a
 value that summarizes how an individual evaluates goal feedback at that
@@ -1062,7 +1044,8 @@ the environment shapes key behaviors (Johns, 2018; Kanfer \& Chen,
 2016). Choosing to sample a goal is a decision employees make several
 times a day, but it is not siloed from the constraints of context.
 
-\subsection{Implications for Practice}\label{implications-for-practice}
+\hypertarget{implications-for-practice}{%
+\subsection{Implications for Practice}\label{implications-for-practice}}
 
 GST offers several implications for management practice. The first is to
 recognize that both employee characteristics (utility; experiences) and
@@ -1092,7 +1075,8 @@ experience the last few times they pursued this goal?} may be much more
 fruitful than, \enquote{What should I give my employees when they
 finish?}
 
-\section{Conclusion}\label{conclusion}
+\hypertarget{conclusion}{%
+\section{Conclusion}\label{conclusion}}
 
 Goal choices are at the forefront of an employee's work day and
 therefore represent an important behavior to understand. In this paper,
@@ -1125,447 +1109,451 @@ time.}
 
 \newpage
 
-\section{References}\label{references}
+\hypertarget{references}{%
+\section{References}\label{references}}
 
-\setlength{\parindent}{-0.5in} \setlength{\leftskip}{0.5in}
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
 
 \hypertarget{refs}{}
-\hypertarget{ref-ackerman1996}{}
+\leavevmode\hypertarget{ref-ackerman1996}{}%
 Ackerman, P. L. (1996). A theory of adult intellectual development:
 Process, personality, interests, and knowledge. \emph{Intelligence},
 \emph{22}(2), 227--257.
 
-\hypertarget{ref-austin1996}{}
+\leavevmode\hypertarget{ref-austin1996}{}%
 Austin, J. T., \& Vancouver, J. B. (1996). Goal constructs in
 psychology: Structure, process, and content. \emph{Psychological
 Bulletin}, \emph{120}(3), 338.
 
-\hypertarget{ref-bandura2001}{}
+\leavevmode\hypertarget{ref-bandura2001}{}%
 Bandura, A. (2001). Social cognitive theory: An agentic perspective.
 \emph{Annual Review of Psychology}, \emph{52}(1), 1--26.
 
-\hypertarget{ref-baumeister2016}{}
+\leavevmode\hypertarget{ref-baumeister2016}{}%
 Baumeister, R. F., Vohs, K. D., \& Oettingen, G. (2016). Pragmatic
 prospection: How and why people think about the future. \emph{Review of
 General Psychology}, \emph{20}(1), 3.
 
-\hypertarget{ref-brydges2011}{}
+\leavevmode\hypertarget{ref-brydges2011}{}%
 Brydges, N. M., Leach, M., Nicol, K., Wright, R., \& Bateson, M. (2011).
 Environmental enrichment induces optimistic cognitive bias in rats.
 \emph{Animal Behaviour}, \emph{81}(1), 169--175.
 
-\hypertarget{ref-busemeyer2018}{}
+\leavevmode\hypertarget{ref-busemeyer2018}{}%
 Busemeyer, J. R. (2018). Old and new directions in strategy selection.
 \emph{Journal of Behavioral Decision Making}, \emph{31}(2), 199--202.
 
-\hypertarget{ref-busemeyer2002}{}
+\leavevmode\hypertarget{ref-busemeyer2002}{}%
 Busemeyer, J. R., Townsend, J. T., \& Stout, J. C. (2002). Motivational
 underpinnings of utility in decision making. \emph{Advances in
 Consciousness Research}, \emph{44}, 197--220.
 
-\hypertarget{ref-cappelli1991}{}
+\leavevmode\hypertarget{ref-cappelli1991}{}%
 Cappelli, P. (1991). The missing role of context in ob: The need for a
 meso-level approach. \emph{Organizational Behavior}, \emph{13}, 55--110.
 
-\hypertarget{ref-Cortina2016}{}
+\leavevmode\hypertarget{ref-Cortina2016}{}%
 Cortina, J. M. (2016). Defining and operationalizing theory.
 \emph{Journal of Organizational Behavior}, \emph{37}(8), 1142--1149.
 
-\hypertarget{ref-Cortina2011}{}
-Cortina, J. M., \& Landis, R. S. (2011). The earth is not round (p=.
-00). \emph{Organizational Research Methods}, \emph{14}(2), 332--349.
-
-\hypertarget{ref-Cortina2017}{}
+\leavevmode\hypertarget{ref-Cortina2017}{}%
 Cortina, J. M., Aguinis, H., \& DeShon, R. P. (2017). Twilight of dawn
 or of evening? A century of research methods in the journal of applied
 psychology. \emph{Journal of Applied Psychology}, \emph{102}(3), 274.
 
-\hypertarget{ref-crowe1997}{}
+\leavevmode\hypertarget{ref-Cortina2011}{}%
+Cortina, J. M., \& Landis, R. S. (2011). The earth is not round (p=.
+00). \emph{Organizational Research Methods}, \emph{14}(2), 332--349.
+
+\leavevmode\hypertarget{ref-crowe1997}{}%
 Crowe, E., \& Higgins, E. T. (1997). Regulatory focus and strategic
 inclinations: Promotion and prevention in decision-making.
 \emph{Organizational Behavior and Human Decision Processes},
 \emph{69}(2), 117--132.
 
-\hypertarget{ref-Cucina2016}{}
+\leavevmode\hypertarget{ref-Cucina2016}{}%
 Cucina, J. M., \& McDaniel, M. A. (2016). Pseudotheory proliferation is
 damaging the organizational sciences. \emph{Journal of Organizational
 Behavior}, \emph{37}(8), 1116--1125.
 
-\hypertarget{ref-denissen2011}{}
+\leavevmode\hypertarget{ref-denissen2011}{}%
 Denissen, J. J., Aken, M. A. van, \& Roberts, B. W. (2011). Personality
 development across the life span. \emph{The Wiley-Blackwell Handbook of
 Individual Differences}, 75--100.
 
-\hypertarget{ref-denrell2005}{}
+\leavevmode\hypertarget{ref-denrell2005}{}%
 Denrell, J. (2005). Why most people disapprove of me: Experience
 sampling in impression formation. \emph{Psychological Review},
 \emph{112}(4), 951.
 
-\hypertarget{ref-DeShon2012}{}
+\leavevmode\hypertarget{ref-denrell2007adaptive}{}%
+Denrell, J. (2007). Adaptive learning and risk taking.
+\emph{Psychological Review}, \emph{114}(1), 177.
+
+\leavevmode\hypertarget{ref-DeShon2012}{}%
 DeShon, R. P. (2012). Multivariate dynamics in organizational science.
 In S. W. J. Kozlowski (Ed.), \emph{The oxford handbook of organizational
 psychology} (pp. 117--142). Oxford University Press.
 
-\hypertarget{ref-deshon2009}{}
+\leavevmode\hypertarget{ref-deshon2009}{}%
 DeShon, R. P., \& Rench, T. A. (2009). Clarifying the notion of
 self-regulation in organizational behavior. \emph{International Review
 of Industrial and Organizational Psychology}, \emph{24}, 217--248.
 
-\hypertarget{ref-dickinson1989}{}
+\leavevmode\hypertarget{ref-dickinson1989}{}%
 Dickinson, A. M. (1989). The detrimental effects of extrinsic
 reinforcement on ``intrinsic motivation''. \emph{The Behavior Analyst},
 \emph{12}(1), 1--15.
 
-\hypertarget{ref-douglas2012}{}
+\leavevmode\hypertarget{ref-douglas2012}{}%
 Douglas, C., Bateson, M., Walsh, C., Bédué, A., \& Edwards, S. A.
 (2012). Environmental enrichment induces optimistic cognitive biases in
 pigs. \emph{Applied Animal Behaviour Science}, \emph{139}(1), 65--73.
 
-\hypertarget{ref-dreher1991}{}
+\leavevmode\hypertarget{ref-dreher1991}{}%
 Dreher, G. F., \& Bretz, R. D. (1991). Cognitive ability and career
 attainment: Moderating effects of early career success. \emph{Journal of
 Applied Psychology}, \emph{76}(3), 392.
 
-\hypertarget{ref-duman2009}{}
+\leavevmode\hypertarget{ref-duman2009}{}%
 Duman, R. S. (2009). Neuronal damage and protection in the
 pathophysiology and treatment of psychiatric illness: Stress and
 depression. \emph{Dialogues in Clinical Neuroscience}, \emph{11}(3),
 239.
 
-\hypertarget{ref-erez2002}{}
+\leavevmode\hypertarget{ref-erez2002}{}%
 Erez, A., \& Isen, A. M. (2002). The influence of positive affect on the
 components of expectancy motivation. \emph{Journal of Applied
 Psychology}, \emph{87}(6), 1055.
 
-\hypertarget{ref-felin2015}{}
+\leavevmode\hypertarget{ref-felin2015}{}%
 Felin, T., Foss, N. J., \& Ployhart, R. E. (2015). The microfoundations
 movement in strategy and organization theory. \emph{The Academy of
 Management Annals}, \emph{9}(1), 575--632.
 
-\hypertarget{ref-gigerenzer1998}{}
+\leavevmode\hypertarget{ref-gigerenzer1998}{}%
 Gigerenzer, G. (1998). Surrogates for theories. \emph{Theory \&
 Psychology}, \emph{8}(2), 195--204.
 
-\hypertarget{ref-gigerenzer2010}{}
+\leavevmode\hypertarget{ref-gigerenzer2010}{}%
 Gigerenzer, G. (2010). Personal reflections on theory and psychology.
 \emph{Theory \& Psychology}, \emph{20}(6), 733--743.
 
-\hypertarget{ref-gigerenzer1999}{}
+\leavevmode\hypertarget{ref-gigerenzer1999}{}%
 Gigerenzer, G., Todd, P. M., \& ABC Research Group, the. (1999).
 \emph{Simple heuristics that make us smart}. Oxford University Press.
 
-\hypertarget{ref-grandey2000}{}
+\leavevmode\hypertarget{ref-grandey2000}{}%
 Grandey, A. A. (2000). Emotional regulation in the workplace: A new way
 to conceptualize emotional labor. \emph{Journal of Occupational Health
 Psychology}, \emph{5}(1), 95.
 
-\hypertarget{ref-grandey2015}{}
+\leavevmode\hypertarget{ref-grandey2015}{}%
 Grandey, A. A., \& Gabriel, A. S. (2015). Emotional labor at a
-crossroads: Where do we go from here?
+crossroads: Where do we go from here? \emph{Annu. Rev. Organ. Psychol.
+Organ. Behav.}, \emph{2}, 323--349.
 
-\hypertarget{ref-greeno1994}{}
-Greeno, J. G. (1994). Gibson's affordances.
+\leavevmode\hypertarget{ref-greeno1994}{}%
+Greeno, J. G. (1994). Gibson's affordances. \emph{Psychological Review},
+\emph{101}(2), 336--342.
 
-\hypertarget{ref-guadagni1983}{}
+\leavevmode\hypertarget{ref-guadagni1983}{}%
 Guadagni, P. M., \& Little, J. D. (1983). A logit model of brand choice
 calibrated on scanner data. \emph{Marketing Science}, \emph{2}(3),
 203--238.
 
-\hypertarget{ref-hackman1976}{}
+\leavevmode\hypertarget{ref-hackman1976}{}%
 Hackman, J. R., \& Oldham, G. R. (1976). Motivation through the design
 of work: Test of a theory. \emph{Organizational Behavior and Human
 Performance}, \emph{16}(2), 250--279.
 
-\hypertarget{ref-Ilgen2000}{}
+\leavevmode\hypertarget{ref-Ilgen2000}{}%
 Ilgen, D. R., \& Hulin, C. L. (2000). \emph{Computational modeling of
 behavior in organizations: The third scientific discipline.} American
 Psychological Association.
 
-\hypertarget{ref-johns2006}{}
+\leavevmode\hypertarget{ref-johns2006}{}%
 Johns, G. (2006). The essential impact of context on organizational
 behavior. \emph{Academy of Management Review}, \emph{31}(2), 386--408.
 
-\hypertarget{ref-johns2010}{}
+\leavevmode\hypertarget{ref-johns2010}{}%
 Johns, G. (2010). Some unintended consequences of job design.
 \emph{Journal of Organizational Behavior}, \emph{31}(2), 361--369.
 
-\hypertarget{ref-johns2017}{}
+\leavevmode\hypertarget{ref-johns2017}{}%
 Johns, G. (2018). Advances in the treatment of context in organizational
 research. \emph{Annual Review of Organizational Psychology and
 Organizational Behavior}, \emph{5}(1), 21--46.
 doi:\href{https://doi.org/10.1146/annurev-orgpsych-032117-104406}{10.1146/annurev-orgpsych-032117-104406}
 
-\hypertarget{ref-johnson2011}{}
+\leavevmode\hypertarget{ref-johnson2011}{}%
 Johnson, D. D., \& Fowler, J. H. (2011). The evolution of
 overconfidence. \emph{Nature}, \emph{477}(7364), 317.
 
-\hypertarget{ref-kanfer2016}{}
+\leavevmode\hypertarget{ref-kanfer2016}{}%
 Kanfer, R., \& Chen, G. (2016). Motivation in organizational behavior:
 History, advances and prospects. \emph{Organizational Behavior and Human
 Decision Processes}, \emph{136}, 6--19.
 
-\hypertarget{ref-keeney1976}{}
+\leavevmode\hypertarget{ref-keeney1976}{}%
 Keeney, R. L., \& Raiffa, H. (1976). \emph{Decision analysis with
 multiple objectives: Preference and value tradeoffs}. Wiley\& Sons, New
 York.
 
-\hypertarget{ref-kerr1975}{}
+\leavevmode\hypertarget{ref-kerr1975}{}%
 Kerr, S. (1975). On the folly of rewarding a, while hoping for b.
 \emph{Academy of Management Journal}, \emph{18}(4), 769--783.
 
-\hypertarget{ref-kondrashov2016}{}
+\leavevmode\hypertarget{ref-kondrashov2016}{}%
 Kondrashov, D. A. (2016). \emph{Quantifying life: A symbiosis of
 computation, mathematics, and biology}. University of Chicago Press.
 
-\hypertarget{ref-kraiger1993}{}
+\leavevmode\hypertarget{ref-kraiger1993}{}%
 Kraiger, K., Ford, J. K., \& Salas, E. (1993). Application of cognitive,
 skill-based, and affective theories of learning outcomes to new methods
 of training evaluation. \emph{Journal of Applied Psychology},
 \emph{78}(2), 311.
 
-\hypertarget{ref-lewin1944}{}
+\leavevmode\hypertarget{ref-lewin1944}{}%
 Lewin, K., Dembo, T., Festinger, L., \& Sears, P. (1944). Level of
 aspiration. In J. Hunt (Ed.), \emph{Personality and the behavior
 disorders} (pp. 333--378). Ronald Press.
 
-\hypertarget{ref-luce1959}{}
+\leavevmode\hypertarget{ref-luce1959}{}%
 Luce, R. D. (1959). \emph{Individual choice behavior: A theoretical
 analysis}. New York: Wiley.
 
-\hypertarget{ref-luce1995}{}
+\leavevmode\hypertarget{ref-luce1995}{}%
 Luce, R. D. (1995). Four tensions concerning mathematical modeling in
 psychology. \emph{Annual Review of Psychology}, \emph{46}(1), 1--27.
 
-\hypertarget{ref-luce1999}{}
+\leavevmode\hypertarget{ref-luce1999}{}%
 Luce, R. D. (1999). Where is mathematical modeling in psychology headed?
 \emph{Theory \& Psychology}, \emph{9}(6), 723--737.
 
-\hypertarget{ref-ludvig2011}{}
+\leavevmode\hypertarget{ref-ludvig2011}{}%
 Ludvig, E. A., Bellemare, M. G., \& Pearson, K. G. (2011). A primer on
 reinforcement learning in the brain: Psychological, computational, and
 neural perspectives. In \emph{Computational neuroscience for advancing
 artificial intelligence: Models, methods and applications} (pp.
 111--144). IGI Global.
 
-\hypertarget{ref-matheson2008}{}
+\leavevmode\hypertarget{ref-matheson2008}{}%
 Matheson, S. M., Asher, L., \& Bateson, M. (2008). Larger, enriched
 cages are associated with `optimistic'response biases in captive
 european starlings (sturnus vulgaris). \emph{Applied Animal Behaviour
 Science}, \emph{109}(2), 374--383.
 
-\hypertarget{ref-mathieu2015}{}
+\leavevmode\hypertarget{ref-mathieu2015}{}%
 Mathieu, J. E., Kukenberger, M. R., D'innocenzo, L., \& Reilly, G.
 (2015). Modeling reciprocal team cohesion--performance relationships, as
 impacted by shared leadership and members' competence. \emph{Journal of
 Applied Psychology}, \emph{100}(3), 713.
 
-\hypertarget{ref-mcphee1981}{}
+\leavevmode\hypertarget{ref-mcphee1981}{}%
 McPhee, R. D., \& Scott Poole, M. (1981). Mathematical modeling in
 communication research: An overview. \emph{Annals of the International
 Communication Association}, \emph{5}(1), 159--191.
 
-\hypertarget{ref-meehl1967}{}
+\leavevmode\hypertarget{ref-meehl1967}{}%
 Meehl, P. E. (1967). Theory-testing in psychology and physics: A
 methodological paradox. \emph{Philosophy of Science}, \emph{34}(2),
 103--115.
 
-\hypertarget{ref-meehl1978}{}
+\leavevmode\hypertarget{ref-meehl1978}{}%
 Meehl, P. E. (1978). Theoretical risks and tabular asterisks: Sir karl,
 sir ronald, and the slow progress of soft psychology. \emph{Journal of
 Consulting and Clinical Psychology}, \emph{46}(4), 806.
 
-\hypertarget{ref-Meehl1990}{}
+\leavevmode\hypertarget{ref-Meehl1990}{}%
 Meehl, P. E. (1990). Why summaries of research on psychological theories
 are often uninterpretable. \emph{Psychological Reports}, \emph{66}(1),
 195--244.
 
-\hypertarget{ref-miller2009}{}
+\leavevmode\hypertarget{ref-miller2009}{}%
 Miller, J. H., \& Page, S. E. (2009). \emph{Complex adaptive systems: An
 introduction to computational models of social life}. Princeton
 university press.
 
-\hypertarget{ref-miner1980}{}
+\leavevmode\hypertarget{ref-miner1980}{}%
 Miner, J. B. (1980). \emph{Theories of organizational behavior}. Dryden
 Press.
 
-\hypertarget{ref-mitchell2009}{}
+\leavevmode\hypertarget{ref-mitchell2009}{}%
 Mitchell, M. (2009). \emph{Complexity: A guided tour}. Oxford University
 Press.
 
-\hypertarget{ref-monge1990}{}
+\leavevmode\hypertarget{ref-monge1990}{}%
 Monge, P. R. (1990). Theoretical and analytical issues in studying
 organizational processes. \emph{Organization Science}, \emph{1}(4),
 406--430.
 
-\hypertarget{ref-morgan2015}{}
+\leavevmode\hypertarget{ref-morgan2015}{}%
 Morgan, S. L., \& Winship, C. (2015). \emph{Counterfactuals and causal
 inference}. Cambridge University Press.
 
-\hypertarget{ref-morgeson2015}{}
+\leavevmode\hypertarget{ref-morgeson2015}{}%
 Morgeson, F. P., Mitchell, T. R., \& Liu, D. (2015). Event system
 theory: An event-oriented approach to the organizational sciences.
 \emph{Academy of Management Review}, \emph{40}(4), 515--537.
 
-\hypertarget{ref-newell1973}{}
+\leavevmode\hypertarget{ref-newell1973}{}%
 Newell, A. (1973). You can't play 20 questions with nature and win. In
 W. G. Chase (Ed.), \emph{Visual information processing}. Academic Press.
 
-\hypertarget{ref-novemsky2005}{}
+\leavevmode\hypertarget{ref-novemsky2005}{}%
 Novemsky, N., \& Dhar, R. (2005). Goal fulfillment and goal targets in
 sequential choice. \emph{Journal of Consumer Research}, \emph{32}(3),
 396--404.
 
-\hypertarget{ref-Pearl2009}{}
+\leavevmode\hypertarget{ref-Pearl2009}{}%
 Pearl, J. (2009). Causal inference in statistics: An overview.
 \emph{Statistics Surveys}, \emph{3}, 96--146.
 
-\hypertarget{ref-piening2013}{}
+\leavevmode\hypertarget{ref-piening2013}{}%
 Piening, E. P., Baluch, A. M., \& Salge, T. O. (2013). The relationship
 between employees' perceptions of human resource systems and
 organizational performance: Examining mediating mechanisms and temporal
 dynamics. \emph{Journal of Applied Psychology}, \emph{98}(6), 926.
 
-\hypertarget{ref-pinsker1970}{}
+\leavevmode\hypertarget{ref-pinsker1970}{}%
 Pinsker, H., Kupfermann, I., Castellucci, V., \& Kandel, E. (1970).
 Habituation and dishabituation of the gm-withdrawal reflex in aplysia.
 \emph{Science}, \emph{167}(3926), 1740--1742.
 
-\hypertarget{ref-Pitariu2010}{}
+\leavevmode\hypertarget{ref-Pitariu2010}{}%
 Pitariu, A. H., \& Ployhart, R. E. (2010). Explaining change: Theorizing
 and testing dynamic mediated longitudinal relationships. \emph{Journal
 of Management}, \emph{36}(2), 405--429.
 
-\hypertarget{ref-platt1964}{}
+\leavevmode\hypertarget{ref-platt1964}{}%
 Platt, J. R. (1964). Strong inference. \emph{Science}, \emph{146}(3642),
 347--353.
 
-\hypertarget{ref-Ployhart2010}{}
+\leavevmode\hypertarget{ref-Ployhart2010}{}%
 Ployhart, R. E., \& Vandenberg, R. J. (2010). Longitudinal research: The
 theory, design, and analysis of change. \emph{Journal of Management},
 \emph{36}(1), 94--120.
 
-\hypertarget{ref-porter2014}{}
+\leavevmode\hypertarget{ref-porter2014}{}%
 Porter, L. W., \& Schneider, B. (2014). What was, what is, and what may
 be in op/ob. \emph{Annu. Rev. Organ. Psychol. Organ. Behav.},
 \emph{1}(1), 1--21.
 
-\hypertarget{ref-reeve2015}{}
+\leavevmode\hypertarget{ref-reeve2015}{}%
 Reeve, C. L., Scherbaum, C., \& Goldstein, H. (2015). Manifestations of
 intelligence: Expanding the measurement space to reconsider specific
 cognitive abilities. \emph{Human Resource Management Review},
 \emph{25}(1), 28--37.
 
-\hypertarget{ref-rescorla1972}{}
+\leavevmode\hypertarget{ref-rescorla1972}{}%
 Rescorla, R. A., \& Wagner, A. R. (1972). A theory of pavlovian
 conditioning: Variations in the effectiveness of reinforcement and
 nonreinforcement. \emph{Classical Conditioning II: Current Research and
 Theory}, \emph{2}, 64--99.
 
-\hypertarget{ref-salmeto2011}{}
+\leavevmode\hypertarget{ref-salmeto2011}{}%
 Salmeto, A. L., Hymel, K. A., Carpenter, E. C., Brilot, B. O., Bateson,
 M., \& Sufka, K. J. (2011). Cognitive bias in the chick
 anxiety--depression model. \emph{Brain Research}, \emph{1373}, 124--130.
 
-\hypertarget{ref-schmidt2007}{}
+\leavevmode\hypertarget{ref-schmidt2007}{}%
 Schmidt, A. M., \& DeShon, R. P. (2007). What to do? The effects of
 discrepancies, incentives, and time on dynamic goal prioritization.
 \emph{Journal of Applied Psychology}, \emph{92}(4), 928.
 
-\hypertarget{ref-shan2005}{}
+\leavevmode\hypertarget{ref-shan2005}{}%
 Shan, J. (2005). Does financial development `lead'economic growth? A
 vector auto-regression appraisal. \emph{Applied Economics},
 \emph{37}(12), 1353--1367.
 
-\hypertarget{ref-shantz2009}{}
+\leavevmode\hypertarget{ref-shantz2009}{}%
 Shantz, A., \& Latham, G. P. (2009). An exploratory field experiment of
 the effect of subconscious and conscious goals on employee performance.
 \emph{Organizational Behavior and Human Decision Processes},
 \emph{109}(1), 9--17.
 
-\hypertarget{ref-simon1956}{}
+\leavevmode\hypertarget{ref-simon1956}{}%
 Simon, H. A. (1956). Rational choice and the structure of the
 environment. \emph{Psychological Review}, \emph{63}(2), 129.
 
-\hypertarget{ref-simon1992}{}
+\leavevmode\hypertarget{ref-simon1992}{}%
 Simon, H. A. (1992). What is an ``explanation'' of behavior?
 \emph{Psychological Science}, \emph{3}(3), 150--161.
 
-\hypertarget{ref-steel2006}{}
+\leavevmode\hypertarget{ref-steel2006}{}%
 Steel, P., \& König, C. J. (2006). Integrating theories of motivation.
 \emph{Academy of Management Review}, \emph{31}(4), 889--913.
 
-\hypertarget{ref-stewart2012}{}
+\leavevmode\hypertarget{ref-stewart2012}{}%
 Stewart, I. (2012). \emph{In pursuit of the unknown: 17 equations that
 changed the world}. Basic Books.
 
-\hypertarget{ref-taylor2014}{}
+\leavevmode\hypertarget{ref-taylor2014}{}%
 Taylor, S. G., Bedeian, A. G., Cole, M. S., \& Zhang, Z. (2014).
 Developing and testing a dynamic model of workplace incivility change.
 \emph{Journal of Management}, \emph{43}(3), 645--670.
 
-\hypertarget{ref-tett2003}{}
+\leavevmode\hypertarget{ref-tett2003}{}%
 Tett, R. P., \& Burnett, D. D. (2003). A personality trait-based
 interactionist model of job performance. \emph{Journal of Applied
 Psychology}, \emph{88}(3), 500.
 
-\hypertarget{ref-thaler1990}{}
+\leavevmode\hypertarget{ref-thaler1990}{}%
 Thaler, R. H., \& Johnson, E. J. (1990). Gambling with the house money
 and trying to break even: The effects of prior outcomes on risky choice.
 \emph{Management Science}, \emph{36}(6), 643--660.
 
-\hypertarget{ref-thibaut1959}{}
+\leavevmode\hypertarget{ref-thibaut1959}{}%
 Thibaut, J. W., \& Kelley, H. H. (1959). \emph{The social psychology of
 groups}. Routledge.
 
-\hypertarget{ref-tobin2010}{}
+\leavevmode\hypertarget{ref-tobin2010}{}%
 Tobin, R. M., \& Graziano, W. G. (2010). Delay of gratification.
 \emph{Handbook of Personality and Self-Regulation}, 47--63.
 
-\hypertarget{ref-van1996}{}
-Van Eerde, W., \& Thierry, H. (1996a). Vroom's expectancy models and
-work-related criteria: A meta-analysis. \emph{Journal of Applied
-Psychology}, \emph{81}(5), 575.
-
-\hypertarget{ref-vaneerde1996}{}
-Van Eerde, W., \& Thierry, H. (1996b). Vroom's expectancy models and
-work-related criteria: A meta-analysis. \emph{Journal of Applied
-Psychology}, \emph{81}(5), 575.
-
-\hypertarget{ref-vancouver2012}{}
-Vancouver, J. B., \& Weinhardt, J. M. (2012). Modeling the mind and the
-milieu: Computational modeling for micro-level organizational
-researchers. \emph{Organizational Research Methods}, \emph{15}(4),
-602--623.
-
-\hypertarget{ref-vancouver2018}{}
+\leavevmode\hypertarget{ref-vancouver2018}{}%
 Vancouver, J. B., Wang, M., \& Li, X. (2018). Translating informal
 theories into formal theories: The case of the dynamic computational
 model of the integrated model of work motivation. \emph{Organizational
 Research Methods}, 1094428118780308.
 
-\hypertarget{ref-vancouver2010}{}
+\leavevmode\hypertarget{ref-vancouver2012}{}%
+Vancouver, J. B., \& Weinhardt, J. M. (2012). Modeling the mind and the
+milieu: Computational modeling for micro-level organizational
+researchers. \emph{Organizational Research Methods}, \emph{15}(4),
+602--623.
+
+\leavevmode\hypertarget{ref-vancouver2010}{}%
 Vancouver, J. B., Weinhardt, J. M., \& Schmidt, A. M. (2010). A formal,
 computational theory of multiple-goal pursuit: Integrating goal-choice
 and goal-striving processes. \emph{Journal of Applied Psychology},
 \emph{95}(6), 985.
 
-\hypertarget{ref-von1982}{}
+\leavevmode\hypertarget{ref-van1996}{}%
+Van Eerde, W., \& Thierry, H. (1996a). Vroom's expectancy models and
+work-related criteria: A meta-analysis. \emph{Journal of Applied
+Psychology}, \emph{81}(5), 575.
+
+\leavevmode\hypertarget{ref-vaneerde1996}{}%
+Van Eerde, W., \& Thierry, H. (1996b). Vroom's expectancy models and
+work-related criteria: A meta-analysis. \emph{Journal of Applied
+Psychology}, \emph{81}(5), 575.
+
+\leavevmode\hypertarget{ref-von1982}{}%
 Von Winterfeldt, D., \& Edwards, W. (1982). Costs and payoffs in
 perceptual research. \emph{Psychological Bulletin}, \emph{91}(3), 609.
 
-\hypertarget{ref-worthy2007}{}
+\leavevmode\hypertarget{ref-worthy2007}{}%
 Worthy, D. A., Maddox, W. T., \& Markman, A. B. (2007). Regulatory fit
 effects in a choice task. \emph{Psychonomic Bulletin \& Review},
 \emph{14}(6), 1125--1132.
 
-\hypertarget{ref-yechiam2005}{}
+\leavevmode\hypertarget{ref-yechiam2005}{}%
 Yechiam, E., \& Busemeyer, J. R. (2005). Comparison of basic assumptions
 embedded in learning models for experience-based decision making.
 \emph{Psychonomic Bulletin \& Review}, \emph{12}(3), 387--402.
-
-
-
-
 
 
 \end{document}

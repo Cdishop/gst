@@ -7,8 +7,6 @@
 time. The letters at the top of the chart indicate which goal she chose
 at each time.}
 \end{figure*}
-\efloatseparator
- 
 \begin{figure*}[hbt]
 \ifnextchar[{\eatarg}{}
 
@@ -17,5 +15,3 @@ at each time.}
 \caption{\label{fig:Figure2}The effect of experiences on utility across
 time.}
 \end{figure*}
-\efloatseparator
- 
