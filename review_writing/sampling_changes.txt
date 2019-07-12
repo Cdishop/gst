@@ -1,0 +1,140 @@
+“A simple, dynamic extension of Temporal Motivation Theory (TMT)” presents a mathematical model of individual level decision making. The narrative motivates the model as the process an employee would use to determine what to work on or what goals to focus on. The author’s intent is to build on TMT, which already considers the utility function of the actor, along with hyperbolic discounting, expectancy theory, cumulative prospect theory and need theory, by considering the “environment” when sampling when sampling options and comparing prior payoffs. This is a good idea. That the TMT model does not consider context is a weakness. What is unclear is what exactly Goal Sampling is modeling and how it works. The issue is a function of the writing and the selection of examples (and literature) used throughout the manuscript. There were so many tangents and explanations sprinkled through the text that it was difficult to keep straight the contribution of the Goal Sampling and what was unique to this model. 
+
+A major reorganization would go far in making this paper more clear. For instance, what is meant by “environment” was not well defined and the literature review that pertained to environment seemed like a tangent (top of page 6). The author should be careful to clearly and explicitly define all concepts and stick to only literature that relates to the model. There must be literature related to environment or context in decision making more relevant than the animal examples used. While reading this section I actually wondered if maybe the author intended for environment to mean something other than situational environment. 
+
+- tope of page 6
+- what is the environment
+- how does it inform decision making
+- stick to relevant literature
+
+The author’s strategy to review TMT before discussing Goal Sampling is a good idea. The issue is that it does not go far enough and the way it is done is confusing. Readers of the Journal of Mathematical Sociology may not be familiar with TMT or literature that surrounds it, or notation used to describe models. It is not that the literature is not covered, but that it is covered in a very non-linear manner.  The TMT model has many elements, many of which are also elements of other approaches. 
+It might be more effective if the author just introduce each feature he feels pertain to his question, cover these elements, mention that TMT covers many, but fails to consider environment, and then demonstrate how the TMT model can be extended to include this new consideration. 
+
+- The material is already covered in the text, it just needs to be better organized. 
+- What's the question, what are features that pertain to the question. TMT covers some of these features, but not all. TMT extended to cover all.
+
+It would also be very useful if the author would demonstrate the benefit of the Goal Sampling model with a comparison to TMT. 
+
+- end of the paper
+
+Related to this, the examples selected often did not work well to clarify ideas. Part of the issue is that there are many different illustrations and examples. A more effective approach might be to select a motivating example and use that one example to illustrate the benefit of each model element. 
+
+- One top level example, use it in a running way throughout
+- ignore for now
+
+One final issue is relevance to sociology. The motivating example is related to a work scenario, and so it is plausible that this model might relate to organizational theory, but no element of the model, literature review or discussion relates to sociological concepts. For publication in a sociology journal the author may want to select a motivating example that pertains to sociology.
+
+- confusing
+- the motivating example relates to organizational theory
+- the elements of the model, literature reviews, and discussion do not relate to sociological concepts
+- but he recommends changing the motivating example...
+
+
+
+
+# Things I notice after re-reading the paper
+- opening: what are the core things I care about representing?
+- TMT. It cannot cover the core things I care about representing (vancouver; it must have these things). Here we go
+- dynamics before environment
+- environment: just say what I want to say and cite as backing...don't explain the studies. Use theories as evidence rather than phrases. 
+
+- a change is coming. what other things inform this process? Experience of actually sampling the goal. Your feedback, your reward. 
+- incorporate that into utility. 
+
+
+
+# Points I want to represent that TMT can and cannot account for:
+
+(a) Neal, Vallard, Vancouver, 2017
+1) dynamic process
+2) formal (mathematical representation of the processes thought to be responsible for observed phenomena)
+3) environment constrains which goals are available
+
+(b) Simon (parable of ant)
+complexity of agent can largely been seen as complexity of the environment in which he finds himself
+
+(c) Simon 1956
+simple representation: agent has limited capacities, and when we take into account the environment it makes the specification even simpler
+
+simplications for describing behavior may not only depend on the characteristics of the agent (sensory, neural, etc) but also on the structure of the environment.
+
+By carefully studying the environment, we could descover mechanisms used in decision making
+
+to understand an individual's behavior you must understand the distribution of goal-relevant objects in the environment
+
+What is the environment
+- not interested in describing physical objective world in its totality
+- describe aspects that are relevant to the lifespace of the agent
+
+(d) deshon gillespie 2005
+to understand action it is not enough to understand the person or the situation. To understand an individaul's actions, it is necessary to understand how the person's goal structure affects the perception of the situation and how this perception further activates goals that result in actions.
+
+(e) deshon rench 2009
+feedback does not need to be a fundamental component in self regulation. Feedback is unnecessary if the individual has knowledge of internal states, the ability to perceive goal-relevant aspects of the environment, and the ability to learn associations between actions and changes in the environment. 
+
+core questions that must be addressed by explanations of self regulation
+1) what is regulated? action, behavior, emotion, congition, goals, self
+2) how does the model incorporate multiple goals? how are goals prioritized?
+3) how does regulation occur? how are actions selected? what is the action selection mechanism? How do goals relate to what is selected?
+4) how does the individual respond to both internal and external dynamics? if small changes in goal-relevant environment or internal states produce giant behavioral changes, then you would have behavioarl chaos and dithering
+
+to understand an individual's behavior you must understand the distribution of goal-relevant objects in the environment
+
+
+
+
+
+
+
+
+
+# Last thing
+
+Discussion
+
+one example, relevant to sociology
+TMT
+GST
+
+expectancy: what is the probability that this outcome will be achieved? probability of acquiring the expected outcome
+- subjective, perceived probability that an outcome will occur
+- at one point, he says self-efficacy (i.e., expectancy). That's a belief about my ability to do well
+value: how much is the expected outcome valued? attractiveness of the outcome
+- how much satisfaction an outcome will produce, subjectively
+
+- introduction
+transition to modernity: 2) disembedding of individuals from close, local communities and face-to-face cultures because of media, eduction, migration, and economic choices
+recent change: dramatic new technologies fueled economic growth. computers spread to every desktop, played music, facilitated growing proportion of purchases
+
+-family
+navigating social relations. where do you give your time?
+combine this with work family conflict
+relevance to both sociology and organizational theory
+
+how institutions are organized, how inequality is reproduced or challeneged in institutions, how intitutions change, how institutions vary across situations or cultures
+what are the major types of families?
+how has the form of the family changed over time?
+how do families adapt over the life cycles of its members?
+how does power operate within families?
+are there social class and race differences in family organization?
+
+sociology
+socail interaction, social organization, social institutions, social change
+interplay between individaul and society
+causes and consequences of social inequality
+social construction of human life
+
+handbook
+family structures are increasingly complex, giving rise to "blended famillies" where new partners bring together children from previous marraiges or relationships. 
+with globalization, especially development of global labor markerts, families are often dispersed through different societies and, while they retain family ties, their familial structures are stretched in spatial terms. 
+
+
+ajs
+choosing to work on your advisor's goals or choosing to work on your own goals
+you make a decision to relate to someone based on small, priority set of variables X. They show that often an additional variable Z, is transmitted from one party to another even though the people initially did not choose to relate on that variable. 
+Graduate students select advisors based on scientific interests and georgraphy. If the advisor received a patent during your time there (but not after), then you were much more likely to patent something yourself. 
+
+bail, brown, wimmer
+google search terms (a proxy for cultural tastes and preferences) flows across countries rarely. It is a multichannel network with many different centers: not US driven and not a huge flow
+
+moving into a career and converging on a set of occupational tasks

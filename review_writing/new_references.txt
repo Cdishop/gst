@@ -1,0 +1,246 @@
+@article{schmidt2010moderating,
+  title={The moderating effects of performance ambiguity on the relationship between self-efficacy and performance.},
+  author={Schmidt, Aaron M and DeShon, Richard P},
+  journal={Journal of Applied Psychology},
+  volume={95},
+  number={3},
+  pages={572},
+  year={2010},
+  publisher={American Psychological Association}
+}
+
+
+@article{neal2017dynamic,
+  title={Dynamic self-regulation and multiple-goal pursuit},
+  author={Neal, Andrew and Ballard, Timothy and Vancouver, Jeffrey B},
+  journal={Annual Review of Organizational Psychology and Organizational Behavior},
+  volume={4},
+  pages={401--423},
+  year={2017},
+  publisher={Annual Reviews}
+}
+
+
+@article{northcraft2011feedback,
+  title={Feedback and the rationing of time and effort among competing tasks.},
+  author={Northcraft, Gregory B and Schmidt, Aaron M and Ashford, Susan J},
+  journal={Journal of Applied Psychology},
+  volume={96},
+  number={5},
+  pages={1076},
+  year={2011},
+  publisher={American Psychological Association}
+}
+
+
+@article{kanfer2016motivation,
+  title={Motivation in organizational behavior: History, advances and prospects},
+  author={Kanfer, Ruth and Chen, Gilad},
+  journal={Organizational Behavior and Human Decision Processes},
+  volume={136},
+  pages={6--19},
+  year={2016},
+  publisher={Elsevier}
+}
+
+
+@incollection{kanfer2012work,
+  title={Work motivation: Theory, practice, and future directions},
+  author={Kanfer, Ruth},
+  booktitle={The Oxford handbook of organizational psychology},
+  volume={1},
+  pages={455--495},
+  year={2012},
+  editor={Steve W J Kozlowski}
+}
+
+
+
+@article{kanfer2017motivation,
+  title={Motivation related to work: A century of progress.},
+  author={Kanfer, Ruth and Frese, Michael and Johnson, Russell E},
+  journal={Journal of Applied Psychology},
+  volume={102},
+  number={3},
+  pages={338},
+  year={2017},
+  publisher={American Psychological Association}
+}
+
+
+@article{courtright2015structural,
+  title={Structural interdependence in teams: An integrative framework and meta-analysis.},
+  author={Courtright, Stephen H and Thurgood, Gary R and Stewart, Greg L and Pierotti, Abigail J},
+  journal={Journal of Applied Psychology},
+  volume={100},
+  number={6},
+  pages={1825},
+  year={2015},
+  publisher={American Psychological Association}
+}
+
+
+@incollection{schmidtmotivation,
+author = {Schmidt, A M and Beck, J W and Gillespie, J Z},
+title = {Motivation},
+booktitle = {Handbook of Psychology, Industrial and Organizational Psychology},
+publisher = {John Wiley & Sons},
+year = {2012},
+editor = {Weiner, I B and Schmitt, N W and Highhouse, S},
+volume = {2},
+pages = {311-340}
+}
+
+
+
+@article{simon1956rational,
+  title={Rational choice and the structure of the environment.},
+  author={Simon, Herbert A},
+  journal={Psychological review},
+  volume={63},
+  number={2},
+  pages={129},
+  year={1956},
+  publisher={American Psychological Association}
+}
+
+
+@article{simon1992explanation,
+  title={What is an “explanation” of behavior?},
+  author={Simon, Herbert A},
+  journal={Psychological science},
+  volume={3},
+  number={3},
+  pages={150--161},
+  year={1992},
+  publisher={SAGE Publications Sage CA: Los Angeles, CA}
+}
+
+
+@article{cappelli1991missing,
+  title={The missing role of context in OB: The need for a meso-level approach},
+  author={Cappelli, Peter},
+  journal={Organizational Behavior},
+  volume={13},
+  pages={55--110},
+  year={1991}
+}
+
+
+@article{lee1994alternative,
+  title={An alternative approach: The unfolding model of voluntary employee turnover},
+  author={Lee, Thomas W and Mitchell, Terence R},
+  journal={Academy of management review},
+  volume={19},
+  number={1},
+  pages={51--89},
+  year={1994},
+  publisher={Academy of Management Briarcliff Manor, NY 10510}
+}
+
+
+@incollection{weissaffective,
+author = {Weiss, H M and Cropanzano, R},
+title = {Affective events theory: A theoretical discussion of the structure, causes, and consequences of affective experiences at work},
+booktitle = {Research in organizational behavior},
+publisher = {Elsevier Science},
+year = {1996},
+editor = {Staw, B M and Cummings, L L},
+pages = {1-74}
+}
+
+
+@incollection{simonant,
+author = {Simon, H},
+title = {The psychology of thinking: Embedding artifice in nature},
+booktitle = {The sciences of the artificial},
+publisher = {MIT Press},
+year = {1981},
+editor = {Simon, H},
+pages = {63-73}
+}
+
+
+@incollection{kanfermotivation,
+author = {Kanfer, R},
+title = {Motivation theory},
+booktitle = {Handbook of industrial and organizational psychology},
+publisher = {Consulting Psychologists Press},
+year = {1990},
+editor = {Dunnette, M and Houghs, L},
+pages = {124-151},
+volume = {1}
+}
+
+
+@article{vancouver2018translating,
+  title={Translating informal theories into formal theories: The case of the dynamic computational model of the integrated model of work motivation},
+  author={Vancouver, Jeffrey B and Wang, Mo and Li, Xiaofei},
+  journal={Organizational Research Methods},
+  pages={1094428118780308},
+  year={2018},
+  publisher={SAGE Publications Sage CA: Los Angeles, CA}
+}
+
+
+
+@article{lord2010self,
+  title={Self-regulation at work},
+  author={Lord, Robert G and Diefendorff, James M and Schmidt, Aaron M and Hall, Rosalie J},
+  journal={Annual review of psychology},
+  volume={61},
+  pages={543--568},
+  year={2010},
+  publisher={Annual Reviews}
+}
+
+
+
+@article{deshon2005motivated,
+  title={A motivated action theory account of goal orientation.},
+  author={DeShon, Richard P and Gillespie, Jennifer Z},
+  journal={Journal of Applied Psychology},
+  volume={90},
+  number={6},
+  pages={1096},
+  year={2005},
+  publisher={American Psychological Association}
+}
+
+
+@article{unsworth2014multiple,
+  title={Multiple goals: A review and derivation of general principles},
+  author={Unsworth, Kerrie and Yeo, Gillian and Beck, James},
+  journal={Journal of Organizational Behavior},
+  volume={35},
+  number={8},
+  pages={1064--1078},
+  year={2014},
+  publisher={Wiley}
+}
+
+
+@article{johns2018advances,
+  title={Advances in the treatment of context in organizational research},
+  author={Johns, Gary},
+  journal={Annual Review of Organizational Psychology and Organizational Behavior},
+  volume={5},
+  pages={21--46},
+  year={2018},
+  publisher={Annual Reviews}
+}
+
+
+
+@article{deshon2009clarifying,
+  title={Clarifying the notion of self-regulation in organizational behavior},
+  author={DeShon, Richard P and Rench, Tara A},
+  journal={International review of industrial and organizational psychology},
+  volume={24},
+  pages={217--248},
+  year={2009},
+  publisher={Wiley Online Library}
+}
+
+
+
