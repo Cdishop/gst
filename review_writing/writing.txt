@@ -95,9 +95,9 @@ GST claims that goal experiences, or subjective evaluations of the feedback and 
 A formal representation of utility updating based on its own prior state and the sampling experience is as follows:
 
 \begin{equation}
-U_{(t+1)} = b_0 U_{t} + b_1 X_t
+U_{(t+1)} = b_0 U_{t} + b_1 P_t
 \end{equation}
-\noindent where $X_t$ represents the experience of a goal at time $t$, $b1$ is the weight relating experience to utility, and all other terms are defined above.
+\noindent where $P_t$ represents the experience of a goal at time $t$, $b1$ is the weight relating experience to utility, and all other terms are defined above.
 
 Utility then influences the probability of sampling alongside the constraints of the environment at the next time point ($E_{t+1}$):
 
@@ -137,7 +137,7 @@ X_{At} \sim {N}(0,1)
 \begin{equation}
 U_{A(t+1)} = 
   \begin{cases}
-  b_0 U_{At} + b_1 X_{At}, & \text{if goal 'A' is chosen}\\
+  b_0 U_{At} + b_1 P_{At}, & \text{if goal 'A' is chosen}\\
   b_0 U_{At}, & \text{otherwise}
   \end{cases}
 \end{equation}
@@ -146,7 +146,7 @@ U_{A(t+1)} =
 \Theta_{A(t+1)} = E_{t+1} * {\frac {1}{1 + e^{U_{A(t+1)}}}}
 \end{equation}
 
-Beginning with equation 10, $X_{At}$ represents her experience of goal 'A' at time $t$ and is assumed to follow a normal distribution with a mean of zero and standard deviation of one. This representation acknowledges that her experience of goal 'A' can be positive, negative, or neutral. Moving to equation 11, her utility of goal 'A' at time $t+1$ ($U_{A(t+1)}$) is influenced by the experience of goal 'A' (to the degree of $b_1$) but only when she samples 'A.' If she does not, then the experience cannot happen and thus does not influence utility. In both cases, her prior utility influences current utility to the degree of $b_0$. Equation 12 represents her likelihood of sampling goal 'A' at the next time point. The likelihood of sampling goal 'A' ($\Theta_{A}$) at $t+1$ is a function of the environment ($E_{t+1}$) and a power function of utility. If utility for goal 'A' is high, then sampling 'A' is likely to the extent that the environment is amenable to that choice. In GST, this process is assumed to operate across all possible goals in the environment, which means that our example individual would have a utility for each possible goal, and at each moment she would act toward the goal with the highest likelihood. 
+Beginning with equation 10, $P_{At}$ represents her experience of goal 'A' at time $t$ and is assumed to follow a normal distribution with a mean of zero and standard deviation of one. This representation acknowledges that her experience of goal 'A' can be positive, negative, or neutral. Moving to equation 11, her utility of goal 'A' at time $t+1$ ($U_{A(t+1)}$) is influenced by the experience of goal 'A' (to the degree of $b_1$) but only when she samples 'A.' If she does not, then the experience cannot happen and thus does not influence utility. In both cases, her prior utility influences current utility to the degree of $b_0$. Equation 12 represents her likelihood of sampling goal 'A' at the next time point. The likelihood of sampling goal 'A' ($\Theta_{A}$) at $t+1$ is a function of the environment ($E_{t+1}$) and a power function of utility. If utility for goal 'A' is high, then sampling 'A' is likely to the extent that the environment is amenable to that choice. In GST, this process is assumed to operate across all possible goals in the environment, which means that our example individual would have a utility for each possible goal, and at each moment she would act toward the goal with the highest likelihood. 
 
 Simple mathematical representations are preferred over their complex counterparts [@stewart2012; @miller2009], and the power function, at first, seems unnecessary. I use it here because it has empirical support [@guadagni1983; @yechiam2005], is present in Denrell's original social impression sampling model [-@denrell2005], and can handle negative values that emerge from equation 10.
 
@@ -190,12 +190,23 @@ Finally, GST assumes that experience distributions are independent from goal uti
 
 # Discussion
 
-The main contributions of this article are as follows: (1) It develops a dynamic model of goal sampling by extending work by @steel2006. As discussed throughout this paper, once dynamics is represented in the equations a variety of implications emerge, but the core notion is that utility retains something about itself through time; (2) It presents analytically tractable set of equations that are suitable for computational modeling [@vancouver2018]; (3) The paper establishes a link between several bodies of work, including organizational theory and empirical work on the environment, biased sampling models of impression formation, notions of dynamics and processes over time, and the foundational utility aspects that formed the opening of this paper.
+The main contributions of this article are as follows: (1) It develops a dynamic model of goal sampling by extending work by @steel2006. As discussed throughout this paper, once dynamics is represented in the equations a variety of implications emerge, but the core notion is that utility retains something about itself through time; (2) It presents an analytically tractable set of equations that are suitable for computational modeling [@vancouver2018] and their development helped satisfy the core goal-choice criteria; (3) The paper establishes a link between several bodies of work, including organizational theory and empirical work on the environment, sampling models of biased impression formation, notions of dynamics and processes over time, and the foundational utility aspects that formed the opening of this paper.
 
-example from sociology
-TMT
-GST
+Consider one final example on a topic that is relevant for sociology and organizational theory in which TMT and GST can be applied and then compared: navigating family and work relations [@blossfeld1991human; @allen2013work]. We will focus on one individual, Jeff, and his dual goals across work and family domains. At work, he has three goals: finish four reports by Friday, introduce himself to the new employee that now works in an adjacent office, and call his partner across the state, Karen, and discuss ideas for implementing a new employee training program. He also has three goals for his family life: attend his daughter's soccer game on Friday, spend time with his aunt who recently moved into town, and go fishing with his wife once a week. Each goal has a utility: Jeff has a belief about his ability to execute the actions necessary for goal completion (expectancy), a subjective value regarding the outcome he expects from each goal (valence), and every goal has a time to reward, some more abstract than others. According to TMT and GST, he selects the goal with the greatest utility. Given this base structure, if we wiggle or perturb the situation [@pearl2018book] the differences between TMT and GST become apparent. 
 
+First, consider a change meant to reveal the different perspectives on the environment. Imagine that Jeff's car breaks down on the way to work and he must sit at a rest stop for half of the day. 
+
+#### TMT. TMT predicts that utilities -- and therefore goal selection -- do not change in this scenario. Whichever goal had the greatest utility before the incident remains the top choice, and Jeff chooses to approach that goal. Jeff's self-efficacy toward each goal remains the same because his personal abilities and their capacity to execute actions did not undergo any changes. He still values the reward from spending time with his aunt in the same way that he did prior to having his car break down, and the same is true for his other goals. Moreover, the time to reward for every goal has not changed. Whichever goal had the greatest utility before the car trouble remains the goal with the greates utility, according to TMT. If speaking with the new employee had the greatest utility before this car event, then TMT predicts that Jeff will somehow choose that goal as he sits at the rest stop -- hopefully it is clear that directly speaking with the employee is impossible given his location. 
+
+#### GST. GST represents the car issue as an environmental disturbance. Jeff is now stuck at the rest area, so his utility for goals that cannot be pursued are driven downward. Most of his goals are now constrained: he cannot complete his reports without access to his computer, he is not in the vicinity of the new employee and cannot engage with him or her, his aunt is elsewhere, and fishing is not an available option. The only goal made available by the environment is calling his partner, Karen, and speaking with her on the phone. GST therefore predicts that Jeff will call Karen and speak about employee training programs as he waits. By incorporating an environment term, GST captures the notion of situation effects on goal availability. 
+
+Second, consider a change meant to reveal differences in how the theories represent utility dynamics. Imagine that Jeff has the same goals as mentioned prior and he goes about his day without trouble (i.e., no car breakdown). Midday, he receives an email from a friend informing him that it is now legal to keep Walleye -- his favorite fish -- caught from the lake that he goes to with his wife. Previously, it was illegal for him to keep Walleye from the lake. His perceived value for that goal then increases, causing its utility to improve as well.
+
+#### TMT. TMT represents this change in utility toward the fishing goal as independent of its past value. There is no connection from prior to current utility, so at each moment utility for a given goal can be infinitely greater or lower than its immediately prior value. It is as if expectancy, value, and time to reward produce utility, everything vanishes, and then at the next moment the cycle begins again. 
+
+#### GST. GST claims that utility perceptions are connected through time. Jeff's utility toward the fishing goal increases, but it increases relative to where it was at the immediately prior moment. Jeff has a history with the fishing goal and its utility has bounced around over time. Given the exciting email, utility bounces up but from where Jeff left it last. The history of utility as represented in the autoregressive term acts like a prior: when it is large and utility is self-similar it is difficult to move, whereas it is more volatile when the autoregressive term is small. Adding this element allows GST to incorporate dynamics.
+
+Finally, GST also emphasizes experience sampling, such that Jeff is unlikely to sample goals that produce poor experiences irrespective of his expectancy, valence, and time to reward perceptions. Adding this element aligns the theory with the variety of sampling biases discussed throughout Denrell and colleageus' work [@denrell2008indirect] in which actions toward or away from an objective occur not because of cognitive errors in how those objectives are perceived but simple sampling experiences that result in valenced impressions. Perhaps Jeff has a low utility estimate for the fishing goal because the last three times he went random circumstances created poor impressions. This idea also reiterates the notion of past dependence mentioned above. Poor experiences with the fishing goal drove utility down, so when Jeff receives the positive email about Walleye his utility estimate increases but not beyond its accumulated low value. 
 
 # Conclusion
 

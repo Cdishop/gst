@@ -244,3 +244,47 @@ volume = {1}
 
 
 
+@article{denrell2008indirect,
+  title={Indirect social influence},
+  author={Denrell, Jerker},
+  journal={Science},
+  volume={321},
+  number={5885},
+  pages={47--48},
+  year={2008},
+  publisher={American Association for the Advancement of Science}
+}
+
+
+@book{pearl2018book,
+  title={The book of why: the new science of cause and effect},
+  author={Pearl, Judea and Mackenzie, Dana},
+  year={2018},
+  publisher={Basic Books}
+}
+
+
+
+@article{blossfeld1991human,
+  title={Human capital investments or norms of role transition? How women's schooling and career affect the process of family formation},
+  author={Blossfeld, Hans-Peter and Huinink, Johannes},
+  journal={American journal of Sociology},
+  volume={97},
+  number={1},
+  pages={143--168},
+  year={1991},
+  publisher={University of Chicago Press}
+}
+
+
+
+@article{allen2013work,
+  title={Work--family conflict and flexible work arrangements: Deconstructing flexibility},
+  author={Allen, Tammy D and Johnson, Ryan C and Kiburz, Kaitlin M and Shockley, Kristen M},
+  journal={Personnel psychology},
+  volume={66},
+  number={2},
+  pages={345--376},
+  year={2013},
+  publisher={Wiley Online Library}
+}
