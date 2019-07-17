@@ -34,7 +34,10 @@ lineno            : yes
 
 lang              : "english"
 class             : "man"
-output            : papaja::apa6_pdf
+output: 
+  papaja::apa6_pdf:
+    includes:
+      in_header: preamble.tex
 ---
 
 ```{r load_packages, include = FALSE}

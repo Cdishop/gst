@@ -2,32 +2,27 @@
 
 A major reorganization would go far in making this paper more clear. For instance, what is meant by “environment” was not well defined and the literature review that pertained to environment seemed like a tangent (top of page 6). The author should be careful to clearly and explicitly define all concepts and stick to only literature that relates to the model. There must be literature related to environment or context in decision making more relevant than the animal examples used. While reading this section I actually wondered if maybe the author intended for environment to mean something other than situational environment. 
 
-- tope of page 6
-- what is the environment
-- how does it inform decision making
-- stick to relevant literature
+Thank you for the recommendation and opportunity to make the paper more clear. After going back through the paper, I agree that my original discussion of the environment was confusing. I have significantly updated and trimmed the introduction to the environment section so that only material that directly relates to the paper is discussed. 
 
-The author’s strategy to review TMT before discussing Goal Sampling is a good idea. The issue is that it does not go far enough and the way it is done is confusing. Readers of the Journal of Mathematical Sociology may not be familiar with TMT or literature that surrounds it, or notation used to describe models. It is not that the literature is not covered, but that it is covered in a very non-linear manner.  The TMT model has many elements, many of which are also elements of other approaches. 
-It might be more effective if the author just introduce each feature he feels pertain to his question, cover these elements, mention that TMT covers many, but fails to consider environment, and then demonstrate how the TMT model can be extended to include this new consideration. 
+Another note is that the environment is a major piece I wanted to incorporate, but it wasn't the only aspect I wanted to focus on. In the prior paper, I introduced the environment first. This time, I pushed the environment section down to emphasize other features first -- hopefully doing so improved clarity. You can see the changes on page BLAH.
 
-- The material is already covered in the text, it just needs to be better organized. 
-- What's the question, what are features that pertain to the question. TMT covers some of these features, but not all. TMT extended to cover all.
+
+The author’s strategy to review TMT before discussing Goal Sampling is a good idea. The issue is that it does not go far enough and the way it is done is confusing. Readers of the Journal of Mathematical Sociology may not be familiar with TMT or literature that surrounds it, or notation used to describe models. It is not that the literature is not covered, but that it is covered in a very non-linear manner.  The TMT model has many elements, many of which are also elements of other approaches. It might be more effective if the author just introduce each feature he feels pertain to his question, cover these elements, mention that TMT covers many, but fails to consider environment, and then demonstrate how the TMT model can be extended to include this new consideration. 
+
+This is a very good suggestion. Following the introduction, the paper now gets right into important features for goal choice and how TMT covers some but not all of those features. The rest of the paper is then framed around satisfying the remaining criteria. I believe this simple suggestion went a long way to improve the clarity of the paper, I hope you agree.
 
 It would also be very useful if the author would demonstrate the benefit of the Goal Sampling model with a comparison to TMT. 
 
-- end of the paper
+Great idea. The discussion section now includes an example where both TMT and GST are compared to more clearly demonstrate their differences. 
 
 Related to this, the examples selected often did not work well to clarify ideas. Part of the issue is that there are many different illustrations and examples. A more effective approach might be to select a motivating example and use that one example to illustrate the benefit of each model element. 
 
-- One top level example, use it in a running way throughout
-- ignore for now
+The suggestions above, in my opinion, went a long way to improve the paper's clarity. It's actually my preference to use many different illustrations rather than one consistent example throughout -- I think it gives the reader a chance to see the ideas from many angles. My hope is that by incorporating your earlier suggestions this one becomes less of an issue. 
 
 One final issue is relevance to sociology. The motivating example is related to a work scenario, and so it is plausible that this model might relate to organizational theory, but no element of the model, literature review or discussion relates to sociological concepts. For publication in a sociology journal the author may want to select a motivating example that pertains to sociology.
 
-- confusing
-- the motivating example relates to organizational theory
-- the elements of the model, literature reviews, and discussion do not relate to sociological concepts
-- but he recommends changing the motivating example...
+Thank you for the suggestion. You are correct in that the paper and many of the examples are meant to connect to organizational theory. Ultimately, the paper is about individuals selecting goals so my examples and writing is going to focus on that topic. The paper now includes an example in the discussion section that hopefully ties more directly with sociology: navigating work vs family relationships and goals. That said, even within that example the core notion is an individual selecting goals. If you have suggestions about which concepts from sociology would make for better examples I would be happy to hear and try to incorporate them. 
+
 
 
 
