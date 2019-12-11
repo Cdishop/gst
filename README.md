@@ -1,1 +1,1 @@
-# gst
+Repository for an article written by Christopher R. Dishop entitled, *A simple, dynamic extension of temporal motivation theory*.  
