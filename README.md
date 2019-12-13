@@ -1,1 +1,3 @@
-Repository for an article written by Christopher R. Dishop entitled, *A simple, dynamic extension of temporal motivation theory*.  The Rmarkdown files used to generate it are located within the "paper" folder.
+Repository for the article, *A simple, dynamic extension of temporal motivation theory* by Christopher R. Dishop. The Rmarkdown files used to generate it are located within the "paper" folder.
+
+Copyright Notice: Your download of the final article constitutes your request to me for a personal copy of the linked article, and my delivery of a personal copy. Please obtain publisher permission for any further distribution, publication, or commercial use.
